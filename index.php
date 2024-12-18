@@ -69,10 +69,10 @@ include("assets/function/function.php");
           <span class="close">&times;</span>
           <div class="obrat">
             <h1>Обратная связь</h1>
-            <form class="obratform">
-            <input type="email" placeholder="E-mail">
-            <input type="text" placeholder="Имя">
-            <textarea placeholder="Сообщение"></textarea>
+            <form class="obratform" action="assets/function/feedback.php" method="POST">
+            <input type="email" placeholder="E-mail" name="email">
+            <input type="text" placeholder="Имя" name="name">
+            <textarea placeholder="Сообщение" name="message"></textarea>
             <button type="submit">Отправить</button>
           </form>
           </div>
@@ -94,173 +94,15 @@ include("assets/function/function.php");
             <button class="tablinks" onclick="openCity(event, 'case')">Корпуса</button>
           </div>
         </div>
-          <!-- Tab content -->       
-          <?=fnindexall()?> 
-            <div id="cpu" class="tabcontent">
-            <?=fnindexcpu()?> 
-        </div>
-          <div id="mother" class="tabcontent">
-            <div class="tab1">
-              <img src="assets/img/1.webp" alt="tovar">
-              <div class="price">
-                <p>12 170 ₽</p> 
-                <button><img src="assets/img/Heart.png" alt="fav"></button>
-              </div>
-              <div class="descrip">
-                <p>Intel Core Ultra 9 285K OEM</p>
-                <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-              </div>
-              <div class="review">
-                <div class="stars">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                </div>
-                <div class="reviewbut">
-                <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-                <p>152</p>
-              </div>
-              </div>
-              <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="carts"><span>В корзину</span></button>
-          </div>
-          </div>
-          <div id="gpu" class="tabcontent">
-            <div class="tab1">
-              <img src="assets/img/1.webp" alt="tovar">
-              <div class="price">
-                <p>12 170 ₽</p> 
-                <button><img src="assets/img/Heart.png" alt="fav"></button>
-              </div>
-              <div class="descrip">
-                <p>Intel Core Ultra 9 285K OEM</p>
-                <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-              </div>
-              <div class="review">
-                <div class="stars">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                </div>
-                <div class="reviewbut">
-                <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-                <p>152</p>
-              </div>
-              </div>
-              <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-          </div>
-          </div>
-          <div id="hdd" class="tabcontent">
-            <div class="tab1">
-              <img src="assets/img/1.webp" alt="tovar">
-              <div class="price">
-                <p>12 170 ₽</p> 
-                <button><img src="assets/img/Heart.png" alt="fav"></button>
-              </div>
-              <div class="descrip">
-                <p>Intel Core Ultra 9 285K OEM</p>
-                <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-              </div>
-              <div class="review">
-                <div class="stars">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                </div>
-                <div class="reviewbut">
-                <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-                <p>152</p>
-              </div>
-              </div>
-              <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-          </div>
-          </div>
-          <div id="ssd" class="tabcontent">
-            <div class="tab1">
-              <img src="assets/img/1.webp" alt="tovar">
-              <div class="price">
-                <p>12 170 ₽</p> 
-                <button><img src="assets/img/Heart.png" alt="fav"></button>
-              </div>
-              <div class="descrip">
-                <p>Intel Core Ultra 9 285K OEM</p>
-                <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-              </div>
-              <div class="review">
-                <div class="stars">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                </div>
-                <div class="reviewbut">
-                <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-                <p>152</p>
-              </div>
-              </div>
-              <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-          </div>
-          </div>
-          <div id="ram" class="tabcontent">
-            <div class="tab1">
-              <img src="assets/img/1.webp" alt="tovar">
-              <div class="price">
-                <p>12 170 ₽</p> 
-                <button><img src="assets/img/Heart.png" alt="fav"></button>
-              </div>
-              <div class="descrip">
-                <p>Intel Core Ultra 9 285K OEM</p>
-                <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-              </div>
-              <div class="review">
-                <div class="stars">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                  <img src="assets/img/star.png" alt="star">
-                </div>
-                <div class="reviewbut">
-                <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-                <p>152</p>
-              </div>
-              </div>
-              <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-          </div>
-          </div>
-          <div id="case" class="tabcontent">
-            <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-          </div> 
+          <!-- Tab content --> 
+          <?=fnindex('all')?>    
+          <?=fnindex('cpu')?>  
+          <?=fnindex('mother')?>   
+          <?=fnindex('gpu')?>  
+          <?=fnindex('hdd')?>  
+          <?=fnindex('ssd')?>  
+          <?=fnindex('ram')?>  
+          <?=fnindex('case')?>                                       
     </section>
     <section class="actualconte">
       <h1>Актуально сейчас</h1>
@@ -310,222 +152,14 @@ include("assets/function/function.php");
         </div>
       </div>
         <!-- Tab content -->
-        <div id="all2" class="tabcontent2">
-          <div class="tab1">
-          <img src="assets/img/1.webp" alt="tovar">
-          <div class="price">
-            <p>12 170 ₽</p> 
-            <button><img src="assets/img/Heart.png" alt="fav"></button>
-          </div>
-          <div class="descrip">
-            <p>Intel Core Ultra 9 285K OEM</p>
-            <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-          </div>
-          <div class="review">
-            <div class="stars">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-            </div>
-            <div class="reviewbut">
-            <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
-            <p>152</p>
-          </div>
-          </div>
-          <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-      </div>
-        </div>  
-          <div id="cpu1" class="tabcontent2">
-          <div class="tab1">
-          <img src="assets/img/1.webp" alt="tovar">
-          <div class="price">
-            <p>12 170 ₽</p> 
-            <button><img src="assets/img/Heart.png" alt="fav"></button>
-          </div>
-          <div class="descrip">
-            <p>Intel Core Ultra 9 285K OEM</p>
-            <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-          </div>
-          <div class="review">
-            <div class="stars">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-            </div>
-            <div class="reviewbut">
-            <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-            <p>152</p>
-          </div>
-          </div>
-          <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-      </div>
-      </div>
-        <div id="mother1" class="tabcontent2">
-          <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="carts"><span>В корзину</span></button>
-        </div>
-        </div>
-        <div id="gpu1" class="tabcontent2">
-          <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-        </div>
-        <div id="hdd1" class="tabcontent2">
-          <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-        </div>
-        <div id="ssd1" class="tabcontent2">
-          <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-        </div>
-        <div id="ram1" class="tabcontent2">
-          <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-        </div>
-        <div id="case1" class="tabcontent2">
-          <div class="tab1">
-          <img src="assets/img/1.webp" alt="tovar">
-          <div class="price">
-            <p>12 170 ₽</p> 
-            <button><img src="assets/img/Heart.png" alt="fav"></button>
-          </div>
-          <div class="descrip">
-            <p>Intel Core Ultra 9 285K OEM</p>
-            <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-          </div>
-          <div class="review">
-            <div class="stars">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-            </div>
-            <div class="reviewbut">
-            <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-            <p>152</p>
-          </div>
-          </div>
-          <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-      </div>
-        </div> 
+        <?=fnindexnew('all2')?>    
+          <?=fnindexnew('cpu1')?>  
+          <?=fnindexnew('mother1')?>   
+          <?=fnindexnew('gpu1')?>  
+          <?=fnindexnew('hdd1')?>  
+          <?=fnindexnew('ssd1')?>  
+          <?=fnindexnew('ram1')?>  
+          <?=fnindexnew('case1')?> 
   </section>
   <section class="tabcont">
     <h1>Новости и обзоры</h1>
@@ -705,7 +339,7 @@ include("assets/function/function.php");
     }
   
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName2).style.display = "block";
+    document.getElementById(cityName2).style.display = "flex";
     evt.currentTarget.className += " active";
   }
   </script>

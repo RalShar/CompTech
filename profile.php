@@ -72,10 +72,10 @@
           <span class="close">&times;</span>
           <div class="obrat">
             <h1>Обратная связь</h1>
-            <form class="obratform">
-            <input type="email" placeholder="E-mail">
-            <input type="text" placeholder="Имя">
-            <textarea placeholder="Сообщение"></textarea>
+            <form class="obratform" action="assets/function/feedback.php" method="POST">
+            <input type="email" placeholder="E-mail" name="email">
+            <input type="text" placeholder="Имя" name="name">
+            <textarea placeholder="Сообщение" name="message"></textarea>
             <button type="submit">Отправить</button>
           </form>
           </div>

@@ -108,22 +108,54 @@ function fnOutCardsAdmin(){
         return '<h4 class="fs-3 text-center">Заказов не найдено</h4>';
     }
 }
-function fnindexall(){
+function fnindex($typeId) {
     global $connect;
 
-    // Изменяем запрос, добавляя LIMIT 5
-    $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price` FROM `product` LIMIT 5";
+    // Маппинг id на типы товаров
+    $typeMapping = [
+        'gpu' => 'Видеокарта',
+        'cpu' => 'Процессор',
+        'ram' => 'Оперативная память',
+        'ssd' => 'SSD',
+        'hdd' => 'HDD',
+        'case' => 'Корпус',
+        'mother' => 'Материнская плата',
+        'all' => 'all' // Для выбора всех товаров
+        // Добавьте другие типы по мере необходимости
+    ];
+
+    // Проверяем, если id равен 'all', то выводим все товары
+    if ($typeId === 'all') {
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+                FROM `product`
+                LIMIT 5";
+    } else {
+        // Проверяем, существует ли тип в маппинге
+        if (!array_key_exists($typeId, $typeMapping)) {
+            return '<h4 class="none">Неверный тип товара</h4>';
+        }
+
+        $productType = $typeMapping[$typeId];
+
+        // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+                FROM `product` 
+                WHERE `type` = '$productType' 
+                LIMIT 5";
+    }
 
     $result = $connect->query($sql);
 
-    if($result->num_rows){
-        $data = '<div id="all" class="tabcontent">';
-        foreach($result as $item){
+    if ($result->num_rows) {
+        // Добавляем значение $typeId в атрибут id
+        $data = sprintf('<div id="%s" class="tabcontent">', htmlspecialchars($typeId));
+        
+        foreach ($result as $item) {
             $data .= sprintf('
-            <div class="tab1">
+            <div class="tab1">        
                 <img src="%s" alt="tovar">
                 <div class="price">
-                    <p>%s</p> 
+                    <p>%s₽</p> 
                     <button><img src="assets/img/Heart.png" alt="fav"></button>
                 </div>
                 <div class="descrip">
@@ -144,33 +176,62 @@ function fnindexall(){
                     </div>
                 </div>
                 <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-            </div>', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+                </div>
+            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
         }
         $data .= '</div>';
         return $data;
-    } else {
-        return '<h4 class="none">Товаров нет</h4>';
-    }
+    } 
 }
-function fnindexcpu(){
+function fnindexnew($typeId) {
     global $connect;
 
-    // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
-    $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price` 
-            FROM `product` 
-            WHERE `type` = 'Процессор' 
-            LIMIT 5";
+    // Маппинг id на типы товаров
+    $typeMapping = [
+        'gpu1' => 'Видеокарта',
+        'cpu1' => 'Процессор',
+        'ram1' => 'Оперативная память',
+        'ssd1' => 'SSD',
+        'hdd1' => 'HDD',
+        'case1' => 'Корпус',
+        'mother1' => 'Материнская плата',
+        'all2' => 'all' // Для выбора всех товаров
+        // Добавьте другие типы по мере необходимости
+    ];
+
+    // Проверяем, если id равен 'all', то выводим все товары
+    if ($typeId === 'all2') {
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+                FROM `product`
+                ORDER BY `id` DESC
+                LIMIT 5";
+    } else {
+        // Проверяем, существует ли тип в маппинге
+        if (!array_key_exists($typeId, $typeMapping)) {
+            return '<h4 class="none">Неверный тип товара</h4>';
+        }
+
+        $productType = $typeMapping[$typeId];
+
+        // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+                FROM `product` 
+                WHERE `type` = '$productType' 
+                LIMIT 5";
+    }
 
     $result = $connect->query($sql);
 
-    if($result->num_rows){
-        $data = '<div id="all" class="tabcontent">';
-        foreach($result as $item){
+    if ($result->num_rows) {
+        // Добавляем значение $typeId в атрибут id
+        $data = sprintf('<div id="%s" class="tabcontent2">', htmlspecialchars($typeId));
+        
+        foreach ($result as $item) {
             $data .= sprintf('
-            <div class="tab1">
+            <div class="tab1">        
                 <img src="%s" alt="tovar">
                 <div class="price">
-                    <p>%s</p> 
+                    <p>%s₽</p> 
                     <button><img src="assets/img/Heart.png" alt="fav"></button>
                 </div>
                 <div class="descrip">
@@ -191,13 +252,11 @@ function fnindexcpu(){
                     </div>
                 </div>
                 <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-            </div>', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+                </div>
+            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
         }
         $data .= '</div>';
         return $data;
-    } else {
-        return '<h4 class="none">Товаров нет</h4>';
-    }
+    } 
 }
-
 ?>
