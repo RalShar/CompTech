@@ -11,14 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Вставка данных в таблицу feedback
     $sql = "INSERT INTO feedback (email, name, message, created_at) VALUES ('$email', '$name', '$message', NOW())";
 
-    if ($connect->query($sql) === TRUE) {
-        echo "Сообщение успешно отправлено!";
-    } else {
-        echo "Ошибка: " . $sql . "<br>" . $connect->error;
-    }
+    // Выполняем запрос
+    $connect->query($sql);
+    
+    // Переход на index.php
+    header("Location: ../../index.php");
+    exit(); // Завершаем выполнение скрипта
 }
 
 // Закрываем соединение
 $connect->close();
 ?>
+
+
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 18 2024 г., 22:23
+-- Время создания: Дек 18 2024 г., 23:43
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -35,6 +35,14 @@ CREATE TABLE `feedback` (
   `created_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Дамп данных таблицы `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `email`, `name`, `message`, `created_at`) VALUES
+(4, 'user@mail.ru', 'das', 'dasd', '2024-12-18 22:43:18'),
+(5, 'user@mail.ru', 'das', 'dass', '2024-12-18 22:45:09');
+
 -- --------------------------------------------------------
 
 --
@@ -49,23 +57,6 @@ CREATE TABLE `order` (
   `count` int NOT NULL DEFAULT '0',
   `address` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `order`
---
-
-INSERT INTO `order` (`id`, `id_user`, `id_product`, `id_status`, `count`, `address`) VALUES
-(1, 3, 1, 3, 12, 'Адресс'),
-(2, 3, 1, 2, 1, 'Адрес'),
-(4, 4, 1, 3, 2, 'fasfas'),
-(8, 1, 2, 2, 2, ''),
-(9, 1, 2, 2, 2, ''),
-(10, 1, 2, 2, 1, ''),
-(11, 1, 2, 2, 2, ''),
-(12, 1, 2, 2, 0, ''),
-(13, 1, 2, 2, 0, ''),
-(14, 1, 2, 2, 0, ''),
-(15, 1, 2, 3, 0, '');
 
 -- --------------------------------------------------------
 
@@ -213,7 +204,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `order`
@@ -225,7 +216,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `role`

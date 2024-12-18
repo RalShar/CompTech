@@ -126,7 +126,7 @@ function fnindex($typeId) {
 
     // Проверяем, если id равен 'all', то выводим все товары
     if ($typeId === 'all') {
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
                 FROM `product`
                 LIMIT 5";
     } else {
@@ -138,7 +138,7 @@ function fnindex($typeId) {
         $productType = $typeMapping[$typeId];
 
         // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
                 FROM `product` 
                 WHERE `type` = '$productType' 
                 LIMIT 5";
@@ -152,7 +152,7 @@ function fnindex($typeId) {
         
         foreach ($result as $item) {
             $data .= sprintf('
-            <div class="tab1">        
+            <form action="assets/function/add-order.php" method="POST" class="tab1">       
                 <img src="%s" alt="tovar">
                 <div class="price">
                     <p>%s₽</p> 
@@ -175,9 +175,9 @@ function fnindex($typeId) {
                         <p>152</p>
                     </div>
                 </div>
-                <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-                </div>
-            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+                <button class="tovbut" id="%s" type="submit"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+                </form> 
+            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';
         return $data;
@@ -201,7 +201,7 @@ function fnindexnew($typeId) {
 
     // Проверяем, если id равен 'all', то выводим все товары
     if ($typeId === 'all2') {
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type` , `id` AS `id`
                 FROM `product`
                 ORDER BY `id` DESC
                 LIMIT 5";
@@ -214,7 +214,7 @@ function fnindexnew($typeId) {
         $productType = $typeMapping[$typeId];
 
         // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
                 FROM `product` 
                 WHERE `type` = '$productType' 
                 LIMIT 5";
@@ -251,9 +251,9 @@ function fnindexnew($typeId) {
                         <p>152</p>
                     </div>
                 </div>
-                <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-                </div>
-            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+                <button class="tovbut" name="%s"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+            </div>
+            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';
         return $data;
