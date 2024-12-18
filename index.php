@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("assets/function/config.php");
+include("assets/function/function.php");
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -89,60 +94,10 @@
             <button class="tablinks" onclick="openCity(event, 'case')">Корпуса</button>
           </div>
         </div>
-          <!-- Tab content -->
-          <div id="all" class="tabcontent">
-            <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
-          </div>  
+          <!-- Tab content -->       
+          <?=fnindexall()?> 
             <div id="cpu" class="tabcontent">
-            <div class="tab1">
-            <img src="assets/img/1.webp" alt="tovar">
-            <div class="price">
-              <p>12 170 ₽</p> 
-              <button><img src="assets/img/Heart.png" alt="fav"></button>
-            </div>
-            <div class="descrip">
-              <p>Intel Core Ultra 9 285K OEM</p>
-              <p>LGA 1851, 24-ядерный, 3700 МГц, Turbo: 5700 МГц, Arrow Lake-S Кэш L2 - 40 Мб, L3 - 36 Мб, Intel Graphics, 3 нм, 125 Вт</p>
-            </div>
-            <div class="review">
-              <div class="stars">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-                <img src="assets/img/star.png" alt="star">
-              </div>
-              <div class="reviewbut">
-              <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-              <p>152</p>
-            </div>
-            </div>
-            <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-        </div>
+            <?=fnindexcpu()?> 
         </div>
           <div id="mother" class="tabcontent">
             <div class="tab1">
@@ -728,7 +683,7 @@
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(cityName).style.display = "flex";
   evt.currentTarget.className += " active";
 } 
     </script>

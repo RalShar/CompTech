@@ -51,7 +51,7 @@ margin-bottom: 3%;
     padding: 0.5% 12px;
     border: none;
     color: black;
-    gap: 1%;
+    gap: 2.7%;
     flex-wrap: wrap;
   } 
   .tabcontent {
@@ -87,8 +87,8 @@ margin-bottom: 3%;
   .tab1{
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 365px;
+    width: 231px;
+    height: 400px;
     background-size: 100% ;
     background-position: 1%;
     border-radius: 7px;
@@ -119,16 +119,25 @@ margin-bottom: 3%;
   }
   .descrip{
     margin-top: 3%;
+    height: 123px;
+  }
+  .descrip p:nth-of-type(1){
+    overflow: hidden;
+    height: 57px;
   }
   .descrip p:nth-of-type(2n){
 color: #767272;
+height: 60px;
 margin-top: 3%;
 font-size: 13px;
   }
   .review{
     display: flex;
     justify-content: space-between;
-    margin-top: 3%  ;
+    margin:auto;
+    margin-left: 0;
+    margin-right: 0;
+    height: 15px;
   }
   .stars img{
     width: 15px;
@@ -141,7 +150,7 @@ font-size: 13px;
     color: #767272;
     font-size: 13px;
     height: 17px;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-left: 3%;
   }
 .reviewbut button{

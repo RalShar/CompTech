@@ -108,5 +108,96 @@ function fnOutCardsAdmin(){
         return '<h4 class="fs-3 text-center">Заказов не найдено</h4>';
     }
 }
+function fnindexall(){
+    global $connect;
+
+    // Изменяем запрос, добавляя LIMIT 5
+    $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price` FROM `product` LIMIT 5";
+
+    $result = $connect->query($sql);
+
+    if($result->num_rows){
+        $data = '<div id="all" class="tabcontent">';
+        foreach($result as $item){
+            $data .= sprintf('
+            <div class="tab1">
+                <img src="%s" alt="tovar">
+                <div class="price">
+                    <p>%s</p> 
+                    <button><img src="assets/img/Heart.png" alt="fav"></button>
+                </div>
+                <div class="descrip">
+                    <p>%s</p>
+                    <p>%s</p>
+                </div>
+                <div class="review">
+                    <div class="stars">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                    </div>
+                    <div class="reviewbut">
+                        <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
+                        <p>152</p>
+                    </div>
+                </div>
+                <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+            </div>', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+        }
+        $data .= '</div>';
+        return $data;
+    } else {
+        return '<h4 class="none">Товаров нет</h4>';
+    }
+}
+function fnindexcpu(){
+    global $connect;
+
+    // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
+    $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price` 
+            FROM `product` 
+            WHERE `type` = 'Процессор' 
+            LIMIT 5";
+
+    $result = $connect->query($sql);
+
+    if($result->num_rows){
+        $data = '<div id="all" class="tabcontent">';
+        foreach($result as $item){
+            $data .= sprintf('
+            <div class="tab1">
+                <img src="%s" alt="tovar">
+                <div class="price">
+                    <p>%s</p> 
+                    <button><img src="assets/img/Heart.png" alt="fav"></button>
+                </div>
+                <div class="descrip">
+                    <p>%s</p>
+                    <p>%s</p>
+                </div>
+                <div class="review">
+                    <div class="stars">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                        <img src="assets/img/star.png" alt="star">
+                    </div>
+                    <div class="reviewbut">
+                        <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
+                        <p>152</p>
+                    </div>
+                </div>
+                <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+            </div>', $item['pimage'], $item['price'], $item['pname'], $item['descrip']);
+        }
+        $data .= '</div>';
+        return $data;
+    } else {
+        return '<h4 class="none">Товаров нет</h4>';
+    }
+}
 
 ?>
