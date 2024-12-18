@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+.tovar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-top: 1px solid black;
+}
+
+.tovar img{
+    width: 140px;
+    height: auto;
+}
+.tovinfo{
+    display: flex;
+    width: 900px;
+    margin-left: 2%;
+}
+.tovchar{
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    font-weight: 500;
+    margin: auto;
+    margin-left: 2%;
+    margin-right: 0;
+    width: 400px;
+}
+.tovchar p:nth-of-type(2n){
+    font-size: 12px;
+    color: #767272;
+    margin-top: 2%;
+    width: 350px;
+}
+.tovprice{
+    width: 57px;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 20%;
+    margin-right: 0;
+}
+.tovbtns{
+    height: 25px;
+    width: 65px;
+    gap: 25%;
+    display: flex;
+    margin: auto;
+    margin-left: 10%;
+    margin-right: 0;
+}
+.tovbtns button{
+    background: transparent;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+.tovbtns img{
+    width: 25px;
+    height: 25px;
+}
+.tovbtns button{
+    cursor: pointer;
+}
+.favs{
+    width: 1100px;
+    margin: auto;
+}
+.favs h1{
+    margin-bottom: 1.5%;
+}
+.fav{
+    margin-top: 1%;
+    height: 600px;
+}

@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+.contacts{
+    height: 580px;
+    width: 100%;
+}
+.conts{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 4%;
+    gap: 4%;
+}
+.contfirst{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.contfirst img{
+    width: 250px;
+    height: 216px;
+    margin: auto;
+}
+.contfirst h1{
+    margin: auto;
+    margin-top: 2%;
+}
+.mails{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    margin-top: 3%;
+}
+.mail1{
+    display: flex;
+    gap: 36%;
+    color: #767272;
+    font-size: 16px;
+}
+.mail1 a{
+    text-decoration: none;
+    color: #767272;
+    }
+.mail2{
+    display: flex;
+    gap: 38%;
+    color: #767272;
+}
+.mail2 a{
+text-decoration: none;
+color: #767272;
+}
+.times{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8%;
+}
+.time1{
+    display: flex;
+    gap: 19%;
+    color: black;
+}
+.time2{
+    display: flex;
+    gap: 48%;
+    color: black;
+}
+.time3{
+    display: flex;
+    gap: 39%;
+    color: black;
+}
+.address{
+    text-align: center;
+    color: #767272;
+    margin-top: 3%;
+}
+.phonemails{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%; 
+}
+.phonemails p{
+    color: #767272;
+    text-align: center;
+}
+.phonemail1{
+    display: flex;
+    gap: 31%;
+}
+.phonemail1 a{
+    text-decoration: none;
+    color: #767272;
+}

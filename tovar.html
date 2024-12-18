@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/tovar.css" />
+    <link rel="stylesheet" href="assets/css/headfont.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>CompTech</title>
+  </head>
+  <body>
+    <header>
+      <div class="headup">
+        <nav>
+          <a href="about.html">О нас</a>
+          <a href="guarantee.html">Гарантии и возврат</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="delivery.html">Доставка и оплата</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+      </div>
+      <div class="headdowncont">
+        <div class="headdown">
+          <img
+            src="assets/img/logo.png"
+            alt="logo"
+            class="logo"
+            onclick="location.href='index.html'"
+          />
+          <button class="catalogbut" onclick="location.href='catalog.html'">
+            <span>Каталог</span
+            ><img src="assets/img/catalog.png" alt="catalog" />
+          </button>
+          <div class="search">
+            <input type="text" placeholder="Поиск" />
+            <img src="assets/img/Search.png" alt="searchicon" />
+          </div>
+          <nav class="headbtns">
+            <button type="button" onclick="location.href='profile.html'">
+              <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
+              <span>Профиль</span>
+            </button>
+            <button type="button" onclick="location.href='cart.html'">
+              <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
+              <span>Корзина</span>
+            </button>
+            <button type="button" onclick="location.href='fav.html'">
+              <img src="assets/img/Heart-192x192.png" alt="fav" />
+              <span>Избранное</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="myModal" class="modal">
+        <!-- Контент в модальном окне -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="obrat">
+            <h1>Обратная связь</h1>
+            <form class="obratform">
+            <input type="email" placeholder="E-mail">
+            <input type="text" placeholder="Имя">
+            <textarea placeholder="Сообщение"></textarea>
+            <button type="submit">Отправить</button>
+          </form>
+          </div>
+        </div>
+      </div>
+      <section class="tovar">
+        <h1>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</h1>
+        <div class="tovarup">
+          <img src="assets/img/5.webp" alt="tovar" />
+          <div class="updescrip">
+            <div class="review">
+              <div class="stars">
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+              </div>
+              <div class="reviewbut">
+                <button>
+                  <img src="assets/img/Commen-192x192.png" alt="review" />
+                </button>
+                <p>152</p>
+              </div>
+            </div>
+            <h3>Коротко о товаре</h3>
+            <p>Назначение:<span>внутренний</span></p>
+            <p>Тип:<span>SSD</span></p>
+            <p>Форм-фактор:<span>M2</span></p>
+            <p>Объём накопителя:<span>1000 Гб</span></p>
+            <p>Интерфейс:<span>PCI-E 4.0 x4</span></p>
+            <p>Поддержка NVMe:<span>да</span></p>
+            <p>Скорость чтения:<span>3500 МБ/сек</span></p>
+            <p>Скорость записи:<span>2100 МБ/сек</span></p>
+            <p>Размер M.2:<span>2280</span></p>
+            <a href="#">Полные характеристики</a>
+          </div>
+          <div class="buy">
+            <div class="tovprice">
+              <p>6 840 ₽</p>
+              <button class="tovbtns">
+                <img src="assets/img/Heart.png" alt="fav" />
+              </button>
+            </div>
+            <button class="tovbut">
+              <img src="assets/img/Shopping_Card-192x192.png" alt="cart" /><span
+                >В корзину</span
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="tabcont">
+        <div class="tabs">
+          <div class="tab">
+            <button
+              class="tablinks3"
+              onclick="openCity3(event, 'all1')"
+              id="defaultOpen3"
+            >
+              Описание
+            </button>
+            <button class="tablinks3" onclick="openCity3(event, 'news')">
+              Отзывы
+            </button>
+          </div>
+        </div>
+        <!-- Tab content -->
+        <div id="all1" class="tabcontent3">
+          <div class="descriptab">
+            <div class="updescrip">
+              <h2>Описание товара</h2>
+              <p>Производитель:<span>Kingston</span></p>
+              <p>Код производителя:<span>SNV2S/1000G</span></p>
+              <p>Назначение:<span>внутренний</span></p>
+              <p>Тип:<span>SSD</span></p>
+              <p>Форм-фактор:<span>M2</span></p>
+              <p>Объём накопителя:<span>1000 Гб</span></p>
+              <p>Интерфейс:<span>PCI-E 4.0 x4</span></p>
+              <p>Поддержка NVMe:<span>да</span></p>
+              <p>Скорость чтения:<span>3500 МБ/сек</span></p>
+              <p>Скорость записи:<span>2100 МБ/сек</span></p>
+              <p>Размер M.2:<span>2280</span></p>
+            </div>
+            <div class="updescrip updescrip2">
+              <h2>Дополнительно</h2>
+              <p>Ресурс перезаписи (TBW):<span>320 ТБ</span></p>
+              <p>Время наработки на отказ:<span>1500000 ч</span></p>
+              <p>Гарантия:<span>12 мес.</span></p>
+              <p>Сайт производителя:<span> www.kingston.com</span></p>
+            </div>
+          </div>
+        </div>
+        <div id="news" class="tabcontent3">
+          <div class="otsiv">
+            <div class="up">
+              <h2>Иванов Иван Иванович</h2>
+              <div class="stars upstars">
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+                <img src="assets/img/star.png" alt="star" />
+              </div>
+            </div>
+            <p>
+              В целом неплохой накопитель со средними скоростями, цена за 1TB
+              конечно кажется завышенной. В моем случае скорости не критичны так
+              как упирается в интерфейс, а вот нагрев хотелось бы видеть меньше.
+            </p>
+          </div>
+          <button class="otbut" id="myBtn1">Написать отзыв</button>
+        </div>
+      </section>
+    </main>
+   <footer>
+      <div class="foot">
+        <div class="tel">
+          <a href="tel:79457854558">7-945-785-45-58</a>
+          <a href="tel:79457552511">7-945-755-25-11</a>
+          <p>Бесплатно по России</p>
+        </div>
+        <div class="links1">
+          <a href="about.html">О компании</a>
+          <a href="delivery.html">Доставка и оплата</a>
+          <a href="guarantee.html">Гарантии и возврат</a>
+          <a href="contacts.html">Контакты</a>
+          <div class="soc">
+            <img src="assets/img/vk.png" alt="vk" />
+            <img src="assets/img/telegram.png" alt="telegram" />
+            <img src="assets/img/youtube.png" alt="youtube" />
+          </div>
+        </div>
+        <div class="links2">
+          <a href="">Что с моим заказом?</a>
+          <a href="FAQ.html">FAQ</a>
+          <a id="myBtn" style="cursor:pointer;">Обратная связь</a>
+          <div class="paymet">
+            <img src="assets/img/mastercard.png" alt="mastercard" />
+            <img src="assets/img/Visa.png" alt="Visa" />
+            <img src="assets/img/Mir.png" alt="mir" />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function openCity3(evt, cityName3) {
+        // Все переменные
+        var q, tabcontent3, tablinks3;
+
+        // спрятать всё под классом tabcontent3
+        tabcontent3 = document.getElementsByClassName("tabcontent3");
+        for (q = 0; q < tabcontent3.length; q++) {
+          tabcontent3[q].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks3" and remove the class "active"
+        tablinks3 = document.getElementsByClassName("tablinks3");
+        for (q = 0; q < tablinks3.length; q++) {
+          tablinks3[q].className = tablinks3[q].className.replace(
+            " active",
+            ""
+          );
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName3).style.display = "flex";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+<script>
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
+</script>
+    <script>
+      // Открытие таба по умолчанию
+      document.getElementById("defaultOpen3").click();
+    </script>
+  </body>
+</html>

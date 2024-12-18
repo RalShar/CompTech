@@ -1,0 +1,276 @@
+header{
+    width: 100%;
+    height: 100px;
+}
+.logo{
+    cursor:pointer;
+}
+.headup{
+    background-color: black;
+    width: 100%;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+}
+.headup nav{
+    display: flex;
+    gap: 12%;
+    width: 44%;
+    margin: auto;
+}
+.headup a{
+    color: white;
+    text-decoration: none;
+    width: auto;
+}
+.headdowncont{
+    display: flex;
+    justify-content: center ;
+    width: 100%;
+    width: 100%;
+    height: 62px;
+    background-color: white;
+}
+.headdown{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+}
+.catalogbut{
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 134px;
+    height: 36px;
+    display: flex;
+    gap: 20%;
+    margin: auto;
+    margin-left: 3%;
+    margin-right: 2%;
+    cursor: pointer;
+}
+.catalogbut img{
+    width: 24px;
+    height: 24px;
+    margin: auto;
+    margin-left: 0;
+}
+.catalogbut span{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 10%;
+    margin-right: 0;
+}
+.search{
+    width: 499px;
+    height: 32px;
+    margin: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+.search input{
+    width: 499px;
+    height: 32px;
+    border-radius: 7px;
+    border:1px solid #D4D4D4;
+    position: relative;
+}
+.search img{
+    position: absolute;
+    left: 61.5%;
+    top: 59px;
+}
+.search input[type=text]{
+    padding-left: 24px;
+}
+
+
+.headbtns{
+    display: flex;
+    gap: 8%;
+    margin-left: 2%;
+    height: 40px;
+    width: 12%;
+}
+.headbtns button{
+    border: none;
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    cursor: pointer;
+}
+.headbtns img{
+    width: 26px;
+    height: 25px;
+    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.headbtns span{
+    font-size: 14px;
+}
+.logo{
+    height: 44px;
+}
+footer{
+    background-color: #F5FAFE;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.foot{
+    width: 100%;
+    display: flex;
+    margin-left: 21%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.tel{
+display: flex;
+flex-direction: column;
+}
+.tel a{
+    text-decoration: none;
+    font-size: 1.375rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.tel p{
+    color: #767272;
+    font-size: .8125rem;
+}
+.links1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 9%;
+}
+.links1 a{
+    color: #767272;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.soc{
+    margin-top: 5%;
+    display: flex;
+    gap: 7%;
+}
+
+.links2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+.links2 a{
+    color: #767272;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 1.8%;
+    margin-bottom: 1.8%;
+}
+.paymet{
+    margin-top: 10.5%;
+    display: flex;
+    gap: 7%;
+    width:300px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #EAF0F5;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #000000;
+    width: 500px;
+    height: 400px;
+    border-radius: 7px;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .obrat{
+    width: 400px;
+    margin: auto;
+    margin-top: 10%;
+  }
+  .obrat h1{
+    margin: auto;
+    width:250px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+  }
+  .obratform{
+    width: 412px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .obratform input{
+    width: 400px;
+    height: 40px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    outline: none;
+    border: 0.5px solid #767272;
+    border-radius: 3px;
+  }
+  .obratform input[type=text]{
+    padding-left: 10px;
+  }
+  .obratform input[type=email]{
+    padding-left: 10px;
+  }
+  .obratform textarea{
+    width: 400px;
+    height: 80px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    outline: none;
+    border: 0.5px solid #767272;
+    border-radius: 3px;
+    resize: none;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+  .obratform button{
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 2%;
+    background: #FFFFFF;
+    border-radius: 3px;
+    border: 0.5px solid #767272;
+  }

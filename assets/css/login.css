@@ -1,0 +1,103 @@
+body {
+    margin: auto;
+    font-family: roboto;
+}
+
+.main {
+    background-image: url("../img/login.jpg");
+    background-size: 100%;
+}
+
+.formcont {
+    display: flex;
+    justify-content: center;
+    width: 758px;
+    height: 530px;
+    background-color: rgba(0, 0, 0, 23%);
+   border-radius: 15px;
+    margin-left: 27%;
+    margin-top: 10%;
+}
+form{
+    margin-top: 6%;
+}
+.formcont p {
+    margin-top: 20%;
+    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18pt;
+    color: white;
+    width: 70px;
+}
+
+.inpt {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    width: 368px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputs {
+    width: 368px;
+}
+
+.inputs input {
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 12%);
+    z-index: 1;
+}
+
+.inputs a {
+    margin-left: 10%;
+    margin-right: auto;
+    text-decoration: underline;
+    color: white
+}
+
+.inpgrp1 {
+    display: flex;
+    width: 340px;
+}
+
+.inpgrp1 input {
+    margin-right: 8%;
+    width: 160px;
+    height: 40px;
+}
+
+.inpt input {
+    width: 360px;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.inpgrp2 {
+    display: flex;
+    width: 368px;
+}
+
+.inpgrp2 input {
+    width: 160px;
+    height: 40px;
+    margin-top: 15px;
+    margin-right: 8%;
+}
+
+.logbtn {
+    margin-left: 26%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.logbtn button {
+    border-radius: 13px;
+    border: none;
+    background-color: rgba(255, 255, 255, 12%);
+    width: 179px;
+    height: 40px;
+    cursor: pointer;
+}

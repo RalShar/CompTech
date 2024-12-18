@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+.tabcont{
+    width: 70%;
+    display: flex;
+flex-direction: column;
+margin: auto;
+margin-bottom: 3%;
+}
+.tabs{
+    border-bottom: solid 1px black;
+}
+ /* Style the tab */
+ .tab {
+    overflow: hidden;
+    background-color: transparent;
+    margin-left: 3%;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: transparent;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5% 16px;
+    transition: 0.3s;
+    color: #767272;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 0.5% 12px;
+    border: none;
+    color: black;
+    font-weight: bold;
+    gap: 1%;
+    flex-wrap: wrap;
+  } 
+  .tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  .triang{
+  background-image: url("../img/vector.png");
+  width: 450px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: 26%;
+  border-radius: 0px 0px 7px 7px;
+  }
+  .triangtxt{
+    margin-top: 16%;
+    margin-left: 3%;
+  }
+  .triangtxt h4{
+font-size: 20px;
+  }
+  .triangtxt p{
+ margin-top: 1%;
+    font-weight: normal;
+  }
+  .tab1{
+    display: flex;
+    width: 427px;
+    height: 280px;
+    background-image:  url("../img/news1.webp");
+    background-size: 100% ;
+    background-position: 1%;
+    border-radius: 7px;
+    margin-top: 1.5%;
+  }
+  .triang2{
+    background-image: url("../img/vector2.png");
+  }
+  .tab2{
+    background-image:  url("../img/news2.webp");
+  }

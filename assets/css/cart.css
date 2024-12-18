@@ -1,0 +1,346 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+.cart{
+margin: auto;
+margin-top: 1%;
+    display: flex;
+    width: 1300px;
+    gap:5%;
+}
+.cartcont{
+    display: flex;
+    width: 100%;
+    height: 1090px;
+}
+.tovarcont h1{
+    margin-bottom: 1.3%;
+}
+.tovar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-top: 1px solid black;
+}
+
+.tovar img{
+    width: 140px;
+    height: auto;
+}
+.tovinfo{
+    display: flex;
+    width: 700px;
+    margin-left: 2%;
+}
+.tovchar{
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    font-weight: 500;
+    margin: auto;
+    margin-left: 2%;
+    margin-right: 0;
+    width: 400px;
+}
+.tovchar p:nth-of-type(2n){
+    font-size: 12px;
+    color: #767272;
+    margin-top: 2%;
+    width: 350px;
+}
+.number-input {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    margin-left: 2%;
+    margin-right: 0;
+}
+
+.number-input button {
+    background-color: #EAF0F5;
+    color: black;
+    border: none;
+
+    cursor: pointer;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+}
+
+.number-input input {
+    width: 45px;
+    height: 25px;
+    text-align: center;
+    border: solid 0.5px #EAF0F5;
+    font-size: 16px;
+    outline: none;
+}
+.number-input  input[type=number]::-webkit-inner-spin-button,
+.number-input  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-input  input[type=number] {
+    -moz-appearance: textfield; /* Для Firefox */
+}
+.tovprice{
+    width: 57px;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 2%;
+    margin-right: 0;
+}
+.tovbtns{
+    height: 25px;
+    width: 65px;
+    gap: 25%;
+    display: flex;
+    margin: auto;
+    margin-left: 2%;
+    margin-right: 0;
+}
+.tovbtns button{
+    background: transparent;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+.tovbtns img{
+    width: 25px;
+    height: 25px;
+}
+.buy{
+    position: sticky;
+    border: 0.5px solid #767272;
+    border-radius: 2px;
+    width: 350px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    top: 15px;
+}
+.buy hr{
+    width: 320px;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 0;
+}
+.buy button{
+    background-color: #04ABFF;
+    border: none;
+    border-radius: 3px;
+    width: 250px;
+    height: 25px;
+color: white;
+font-size: 16px;
+margin: auto;
+margin-top: 1%;
+margin-bottom: 1%;
+cursor: pointer;
+}
+.txt1{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.txt1:nth-of-type(1){
+    margin-top: 5%;
+}
+.txt1 p:nth-of-type(1){
+    color: #767272;
+}
+.txt2 p{
+    color: black !important;
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.txt3{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+.town{
+display: flex;
+flex-direction: column;
+margin-top: 1%;
+}
+.checkscont p{
+margin-top: 1%;
+margin-bottom: 1%;
+font-size: 21px;
+}
+.checks{
+    display: flex;
+    gap: 6%;
+}
+.deliv1{
+    display: flex;
+    flex-direction: column;
+}
+.deliv1 input{
+    display: none;
+}
+.deliv1 input[type="radio"]:checked + .word_opts {
+    border: 1px solid rgb(0, 174, 255);
+  }
+.deliv2{
+    display: flex;
+    flex-direction: column;
+}
+.deliv2 input{
+    display: none;
+}
+.word_opts {
+    width: 300px;
+    height: 45px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: 1px solid #767272;
+    border-radius: 3px;
+    transition: 0.2s;
+    position: relative;
+  }
+  .word_opts p{
+    margin-left: 3%;
+  }
+  .word_opts p:nth-of-type(1){
+    margin-top: 1.5%;
+    font-size: 18px;
+  }
+  .word_opts p:nth-of-type(2n){
+    margin-bottom: 1.5%;
+    font-size: 12px;
+    color: #767272;
+  }
+  .deliv2 input[type="radio"]:checked + .word_opts {
+    border: 1px solid rgb(0, 174, 255);
+  }
+  .town p{
+margin-bottom: 1%;
+font-size: 21px;
+  }
+  .town input{
+    width: 230px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    outline:none;
+  }
+  .town input[type=text]{
+    padding-left: 10px;
+}
+.ordercont{
+    border-top: 1px solid black;
+}
+.delivery_adress{
+    margin-top: 1%;
+}
+.delivery_adress p{
+    margin-bottom: 1%;
+    font-size: 21px;
+}
+.delivery_adress input{
+    width: 610px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    outline:none;
+}
+.delivery_adress input[type=text]{
+    padding-left: 10px;
+}
+.delad{
+    display: flex;
+    gap: 9.3%;
+    margin-top: 2%;
+}
+.delad input{
+    width: 150px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    outline:none;
+}
+.payment_method{
+    margin-top: 1%;
+}
+.payment_method p{
+    font-size: 21px;
+    margin-bottom: 1%;
+}
+.personal_data{
+    margin-top: 1%;
+}
+.personal_data p{
+    margin-bottom: 1%;
+    font-size: 21px;
+}
+.personal1{
+    display: flex;
+    gap: 13%;
+}
+.personal1 input{
+    width: 230px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    outline:none;
+}
+.personal1 input[type=text]{
+    padding-left: 10px;
+}
+.personal1 input[type=email]{
+    padding-left: 10px;
+}
+.personal2{
+    display: flex;
+    margin-top: 2%;
+    gap: 13%;
+}
+.personal2 input{
+    width: 230px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    outline:none;
+}
+.personal2 input[type=tel]{
+    padding-left: 10px;
+}
+.comments{
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+.comments p{
+    margin-bottom: 1%;
+    font-size: 21px;
+}
+.comments textarea{
+    width: 585px;
+    height: 90px;
+    border-radius: 3px;
+    border: 1px solid #767272;
+    font-size: 17px;
+    resize: none;
+    outline:none;
+}
