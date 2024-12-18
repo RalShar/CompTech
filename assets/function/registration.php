@@ -36,6 +36,6 @@ $_SESSION['id'] = $connect->insert_id;
 $_SESSION['role'] = 'user'; // Роль можно установить напрямую, так как мы знаем, что это 'user'
 
 // Перенаправление
-header("Location: ../index.php");
+header("Location: ../../index.php");
 exit;
 ?>

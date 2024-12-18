@@ -39,7 +39,7 @@ document.querySelector(".send").addEventListener("click", (event) => {
 </script>
     <main>
         <div class="formcont">
-            <form action="function/registration.php" method="post">
+            <form action="assets/function/registration.php" method="post">
                 <p>Регистрация</p>
                 <div class="inputs">
                     <div class="inpt">

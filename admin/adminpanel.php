@@ -5,7 +5,7 @@
         header("Location: /index.php");
         exit;
     }
-    include("../function/function.php");
+    include("../assets/function/function.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">

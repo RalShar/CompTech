@@ -17,7 +17,7 @@
 <body class="main">
     <main>
         <div class="formcont">
-            <form action="function/logincont.php" method="post">
+            <form action="assets/function/logincont.php" method="post">
                 <p>Войти</p>
                 <div class="inputs">
                     <div class="inpt">

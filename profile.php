@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        header("Location: /login.php");
+        exit;
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -41,7 +49,7 @@
             <img src="assets/img/Search.png" alt="searchicon" />
           </div>
           <nav class="headbtns">
-            <button type="button" onclick="location.href='profile.html'">
+            <button type="button" onclick="location.href='profile.php'">
               <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
               <span>Профиль</span>
             </button>
