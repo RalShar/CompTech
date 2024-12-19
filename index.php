@@ -37,7 +37,7 @@ include("assets/function/function.php");
           class="logo"
           onclick="location.href='index.php'"
         />
-        <button class="catalogbut" onclick="location.href='catalog.html'">
+        <button class="catalogbut" onclick="location.href='catalog.php'">
           <span>Каталог</span
           ><img src="assets/img/catalog.png" alt="catalog" />
         </button>

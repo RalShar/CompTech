@@ -15,6 +15,39 @@ body{
     margin-left: 7% !important;
     margin-top: 2% !important;
 }
+.window2{
+    width: 500px !important;
+    margin-left: 7% !important;
+    margin-top: 2% !important;
+    background: silver;
+  box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
+  padding: 3px;
+}
+.sub{
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.inputs{
+    display: flex;
+    margin: auto;
+    width: 400px;
+}
+.inputs1{
+    margin: auto;
+    width: 400px;
+    margin-top: 1%;
+}
+.inputs2{
+    display: flex;
+    flex-direction: column;
+    margin-top:1%;
+}
+.inputs2 input[type="file"]{
+    margin: auto;
+    margin-top:1%;
+}
 .button1{
 width: 70px;
 margin-left: 0.7%;
@@ -63,6 +96,15 @@ margin-top: 1%;
 }
 .footbut{
     width: 100px;
+}
+.content{
+    display: none;
+}
+.content1{
+    display: none;
+}
+textarea{
+    resize: none;
 }
 .footbut button{
     min-height: 15px !important;

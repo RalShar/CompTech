@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("assets/function/config.php");
+include("assets/function/function.php");
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -127,37 +132,7 @@
   </div>
 </div>
 </div>
-<div>
-  <div class="tovar">
-    <img src="assets/img/ssd.webp" alt="tovar">
-    <div class="tovinfo">
-      <div class="tovchar">
-          <p>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</p>
-          <p>внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280</p>
-          <div class="review">
-            <div class="stars">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-              <img src="assets/img/star.png" alt="star">
-            </div>
-            <div class="reviewbut">
-            <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
-            <p>152</p>
-          </div>
-          </div>
-      </div>
-      <div class="tovprice">
-      <p>6 840 ₽</p>
-      <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-    </div>
-      <div class="tovbtns">
-      <button><img src="assets/img/Heart.png" alt="fav"></button>
-  </div>
-    </div>
-  </div>
-</div>
+<?=fncatalog('all')?> 
 </div>
     </section>
     <footer>

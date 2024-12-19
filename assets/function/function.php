@@ -259,4 +259,80 @@ function fnindexnew($typeId) {
         return $data;
     } 
 }
+function fncatalog($typeId) {
+    global $connect;
+
+    // Маппинг id на типы товаров
+    $typeMapping = [
+        'gpu' => 'Видеокарта',
+        'cpu' => 'Процессор',
+        'ram' => 'Оперативная память',
+        'ssd' => 'SSD',
+        'hdd' => 'HDD',
+        'case' => 'Корпус',
+        'mother' => 'Материнская плата',
+        'all' => 'all' // Для выбора всех товаров
+        // Добавьте другие типы по мере необходимости
+    ];
+
+    // Проверяем, если id равен 'all', то выводим все товары
+    if ($typeId === 'all') {
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
+                FROM `product`";
+    } else {
+        // Проверяем, существует ли тип в маппинге
+        if (!array_key_exists($typeId, $typeMapping)) {
+            return '<h4 class="none">Неверный тип товара</h4>';
+        }
+
+        $productType = $typeMapping[$typeId];
+
+        // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
+                FROM `product` 
+                WHERE `type` = '$productType' ";
+    }
+
+    $result = $connect->query($sql);
+
+    if ($result->num_rows) {
+        // Добавляем значение $typeId в атрибут id
+        $data = sprintf('<div id="%s">', htmlspecialchars($typeId));
+        
+        foreach ($result as $item) {
+            $data .= sprintf('
+              <div class="tovar">
+    <img src="%s" alt="tovar">
+    <div class="tovinfo">
+      <div class="tovchar">
+          <p>%s</p>
+          <p>%s</p>
+          <div class="review">
+            <div class="stars">
+              <img src="assets/img/star.png" alt="star">
+              <img src="assets/img/star.png" alt="star">
+              <img src="assets/img/star.png" alt="star">
+              <img src="assets/img/star.png" alt="star">
+              <img src="assets/img/star.png" alt="star">
+            </div>
+            <div class="reviewbut">
+            <button><img src="assets/img/Commen-192x192.png" alt="review"></button>
+            <p>152</p>
+          </div>
+          </div>
+      </div>
+      <div class="tovprice">
+      <p>%s ₽</p>
+      <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+    </div>
+      <div class="tovbtns">
+      <button><img src="assets/img/Heart.png" alt="fav"></button>
+  </div>
+    </div>
+  </div>', $item['pimage'], $item['pname'], $item['descrip'], $item['price'], $item['id']);
+        }
+        $data .= '</div>';
+        return $data;
+    } 
+}
 ?>
