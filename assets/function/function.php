@@ -32,7 +32,7 @@ function fnOutCardsUser () {
                     </div>
                     <p class="tovprice">%d ₽</p>
                     <div class="tovbtns">
-                        <button type="button" class="favorite" data-id="%d"><img src="assets/img/Heart.png" alt="fav"></button>
+                        <button type="button" class="cart" data-id="%d"><img src="assets/img/Heart.png" alt="fav"></button>
                         <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
                     </div>
                 </div>
@@ -54,6 +54,55 @@ function fnOutCardsUser () {
         return $data;
     } else {
         return '<h4 class="none">Заказов не найдено</h4>';
+    }
+}
+function fnfav() {
+    global $connect;
+
+    // Подготовленный SQL-запрос для повышения безопасности
+    $stmt = $connect->prepare("SELECT `product`.`id` AS `id_product`, 
+                                       `product`.`name` AS `pname`, 
+                                       `product`.`img` AS `pimage`, 
+                                       `product`.`description` AS `description`, 
+                                       `price` 
+                                FROM `fav` 
+                                INNER JOIN `product` ON `fav`.`id_product` = `product`.`id` 
+                                WHERE `id_user` = ?");
+    $stmt->bind_param("i", $_SESSION['id']); // Предполагаем, что id_user - это целое число
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows) {
+        $data = '<form>';
+        foreach ($result as $item) {
+            $data .= sprintf('
+            <div class="tovar">
+                <img src="%s" alt="tovar">
+                <div class="tovinfo">
+                    <div class="tovchar">
+                        <p>%s</p>
+                        <p>%s</p>
+                    </div>
+                    <p class="tovprice">%d ₽</p>
+                    <div class="tovbtns">
+                           <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)"><img src="assets/img/cartg.png" alt="cart"></button>
+                        <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
+                    </div>
+                </div>
+            </div>', 
+            htmlspecialchars($item['pimage']), 
+            htmlspecialchars($item['pname']), 
+            htmlspecialchars($item['description']), 
+            intval($item['price']), // Используем intval для целого числа
+            $item['id_product'], // id_product для кнопки избранного
+            $item['id_product']  // id_product для кнопки удаления
+        );
+        }
+
+        $data .= '</form>';
+        return $data;
+    } else {
+        return '<h4 class="none">Избранные товары не найдены</h4>';
     }
 }
 
@@ -186,11 +235,11 @@ function fnindex($typeId) {
         
         foreach ($result as $item) {
             $data .= sprintf('
-            <form id="add-to-cart-form" action="assets/function/add-order.php" method="POST" class="tab1">       
+            <form id="add-to-cart-form"class="tab1">       
     <img src="%s" alt="tovar">
     <div class="price">
         <p>%s₽</p> 
-       <button type="button"><img src="assets/img/Heart.png" alt="fav"></button>
+      <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
     </div>
     <div class="descrip">
         <p>%s</p>
@@ -214,7 +263,7 @@ function fnindex($typeId) {
         <span>В корзину</span>
     </button>
 </form> 
-            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
+            ', $item['pimage'], $item['price'], $item['id'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';
         return $data;
@@ -269,7 +318,7 @@ function fnindexnew($typeId) {
     <img src="%s" alt="tovar">
     <div class="price">
         <p>%s₽</p> 
-        <button type="button" name="id_product" value="%s" onclick="addToFavorites(this)"><img src="assets/img/Heart.png" alt="fav"></button>
+        <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
     </div>
     <div class="descrip">
         <p>%s</p>
@@ -363,13 +412,13 @@ function fncatalog($typeId) {
       </div>
       <div class="tovprice">
       <p>%s ₽</p>
-      <button class="tovbut"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+       <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
     </div>
       <div class="tovbtns">
-      <button><img src="assets/img/Heart.png" alt="fav"></button>
+      <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
   </div>
     </div>
-  </div>', $item['pimage'], $item['pname'], $item['descrip'], $item['price'], $item['id']);
+  </div>', $item['pimage'], $item['pname'], $item['descrip'], $item['price'], $item['id'], $item['id']);
         }
         $data .= '</div>';
         return $data;

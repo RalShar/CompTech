@@ -21,12 +21,6 @@ include("../assets/function/function.php");
                     <p>На главную</p>
                 </button>
             </div>
-            <div class="button1 toggleButton" style="position: relative; top: 0; left: 0" onmousedown="dragOBJ(this,event); return false;" data-target="content1">
-                <button ondblclick="location.href='#'">
-                    <img src="../assets/img/check-0.png">
-                    <p>Подтверждение заказов</p>
-                </button>
-            </div>
         </div>
         <div class="button2 toggleButton" style="position: relative; top: 0; left: 0" onmousedown="dragOBJ(this,event); return false;" data-target="content2">
             <button ondblclick="location.href='#'">
@@ -79,26 +73,7 @@ include("../assets/function/function.php");
         </div>
     </div>
 
-    <div class="window content" style="position: relative; top: 0; left: 0" onmousedown="dragOBJ(this,event); return false;" id="content1">
-        <div class="title-bar">
-            <div class="title-bar-text">
-                Подтверждение заказов
-            </div>
-            <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close" class="closeButton"></button>
-            </div>
-        </div>
-        <div class="window-body">
-        <?=fnOutCardsAdmin()?>
-        </div>
-        <div class="status-bar">
-            <p class="status-bar-field">Admin Panel</p>
-            <p class="status-bar-field">Powered by 98.css</p>
-            <p class="status-bar-field">CPU Usage: 14%</p>
-        </div>
-    </div>              
+            
 </section> <!-- Закрывающий тег для section -->
 <footer>
     <div class="foot">

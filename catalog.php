@@ -54,7 +54,7 @@ include("assets/function/function.php");
             <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
             <span>Корзина</span>
           </button>
-          <button type="button" onclick="location.href='fav.html'">
+          <button type="button" onclick="location.href='fav.php'">
             <img src="assets/img/Heart-192x192.png" alt="fav" />
             <span>Избранное</span>
           </button>
@@ -192,5 +192,47 @@ include("assets/function/function.php");
             }
           } 
           </script>
+          <script>
+function addToCart(button) {
+    var productId = button.value; // Получаем id_product из кнопки
+    var xhr = new XMLHttpRequest(); // Создаем новый XMLHttpRequest объект
+    xhr.open("POST", "assets/function/add-order.php", true); // Указываем метод и URL
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок
+
+    // Обработка ответа от сервера
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Если успешно, выводим ответ
+            alert(xhr.responseText);
+        } else {
+            alert("Произошла ошибка: " + xhr.status);
+        }
+    };
+
+    // Отправляем данные на сервер
+    xhr.send("id_product=" + encodeURIComponent(productId));
+}
+</script>
+<script>
+function addToFav(button) {
+    var productId = button.value; // Получаем id_product из кнопки
+    var xhr = new XMLHttpRequest(); // Создаем новый XMLHttpRequest объект
+    xhr.open("POST", "assets/function/addfav.php", true); // Указываем метод и URL
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок
+
+    // Обработка ответа от сервера
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Если успешно, выводим ответ
+            alert(xhr.responseText);
+        } else {
+            alert("Произошла ошибка: " + xhr.status);
+        }
+    };
+
+    // Отправляем данные на сервер
+    xhr.send("id_product=" + encodeURIComponent(productId));
+}
+</script>
           </body>
           </html>

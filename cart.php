@@ -54,7 +54,7 @@ include("assets/function/function.php");
               <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
               <span>Корзина</span>
             </button>
-            <button type="button" onclick="location.href='fav.html'">
+            <button type="button" onclick="location.href='fav.php'">
               <img src="assets/img/Heart-192x192.png" alt="fav" />
               <span>Избранное</span>
             </button>
@@ -86,7 +86,7 @@ include("assets/function/function.php");
     <div class="tovleft">  
       <div class="order">
 <h1>Оформление заказа</h1>
-<form class="ordercont" id="myForm">
+<form class="ordercont" id="myForm" action="assets\function\oform.php" method="POST">
 <div class="town">
   <p>Город Доставки</p>
   <input type="text" placeholder="Город" value="Москва" name="city" id="city" required>

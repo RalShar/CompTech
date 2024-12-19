@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("assets/function/config.php");
+include("assets/function/function.php");
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -46,7 +51,7 @@
               <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
               <span>Корзина</span>
             </button>
-            <button type="button" onclick="location.href='fav.html'">
+            <button type="button" onclick="location.href='fav.php'">
               <img src="assets/img/Heart-192x192.png" alt="fav" />
               <span>Избранное</span>
             </button>
@@ -72,34 +77,7 @@
     <section class="fav">
 <div class="favs">
     <h1>Избранное</h1>
-    <div class="tovar">
-        <img src="assets/img/ssd.webp" alt="tovar">
-        <div class="tovinfo">
-          <div class="tovchar">
-              <p>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</p>
-              <p>внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280</p>
-          </div>       
-          <p class="tovprice">6 840 ₽</p>
-          <div class="tovbtns">
-          <button><img src="assets/img/cartg.png" alt="fav"></button>
-          <button><img src="assets/img/Trash.png" alt="del"></button>
-      </div>
-        </div>
-      </div>
-      <div class="tovar">
-        <img src="assets/img/ssd.webp" alt="tovar">
-        <div class="tovinfo">
-          <div class="tovchar">
-              <p>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</p>
-              <p>внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280</p>
-          </div>
-          <p class="tovprice">6 840 ₽</p>
-          <div class="tovbtns">
-          <button><img src="assets/img/cartg.png" alt="fav"></button>
-          <button><img src="assets/img/Trash.png" alt="del"></button>
-      </div>
-        </div>
-      </div>
+    <?=fnfav()?>   
 </div>
     </section>
     <footer>
@@ -159,5 +137,58 @@
       }
     } 
     </script>
+    <script>
+function addToCart(button) {
+    var productId = button.value; // Получаем id_product из кнопки
+    var xhr = new XMLHttpRequest(); // Создаем новый XMLHttpRequest объект
+    xhr.open("POST", "assets/function/add-order.php", true); // Указываем метод и URL
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок
+
+    // Обработка ответа от сервера
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Если успешно, выводим ответ
+            alert(xhr.responseText);
+        } else {
+            alert("Произошла ошибка: " + xhr.status);
+        }
+    };
+
+    // Отправляем данные на сервер
+    xhr.send("id_product=" + encodeURIComponent(productId));
+}
+</script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.delete');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+
+            if (confirm('Вы уверены, что хотите удалить этот товар из избранного?')) {
+                fetch('assets/function/delete-fav.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id_product: productId }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Товар успешно удален из избранного.');
+                        // Здесь можно обновить интерфейс, чтобы убрать удаленный товар
+                        location.reload(); // Перезагрузите страницу или удалите элемент из DOM
+                    } else {
+                        alert('Ошибка при удалении товара: ' + data.error);
+                    }
+                })
+                .catch(error => console.error('Ошибка:', error));
+            }
+        });
+    });
+});
+</script>
   </body>
 </html>
