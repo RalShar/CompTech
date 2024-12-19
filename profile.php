@@ -53,7 +53,7 @@
               <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
               <span>Профиль</span>
             </button>
-            <button type="button" onclick="location.href='cart.html'">
+            <button type="button" onclick="location.href='cart.php'">
               <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
               <span>Корзина</span>
             </button>

@@ -2,31 +2,65 @@
 
 include("config.php");
 
-function fnOutCardsUser(){
+function fnOutCardsUser () {
     global $connect;
 
-    $sql = "SELECT `product`.`name` AS `pname`, `product`.`image` AS `pimage`, `address`, `price` FROM `order` INNER JOIN `status` ON `order`.`id_status` = `status`.`id` INNER JOIN `product` ON `order`.`id_product` = `product`.`id` WHERE `id_user` = '{$_SESSION['id']}'";
+    // Подготовленный SQL-запрос для повышения безопасности
+    $stmt = $connect->prepare("SELECT `product`.`id` AS `id_product`, `product`.`name` AS `pname`, `product`.`img` AS `pimage`, `product`.`description` AS `description`, `order`.`count` AS `count`, `price` 
+                                FROM `order` 
+                                INNER JOIN `product` ON `order`.`id_product` = `product`.`id` 
+                                WHERE `id_user` = ?");
+    $stmt->bind_param("i", $_SESSION['id']); // Предполагаем, что id_user - это целое число
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $result = $connect->query($sql);
-
-    if($result->num_rows){
-        $data = '<div class="cartcont">';
-        foreach($result as $item){
+    if ($result->num_rows) {
+        $data = '<form>';
+        foreach ($result as $item) {
             $data .= sprintf('
-            <div class="cartup">
-            <img src=%s alt="tovar">
-            <div class="carttxt">
-              <p>%s</p>
-              <p>%s ₽</p>
-            </div>
-          </div>', $item['pimage'], $item['pname'], $item['price']);
+            <div class="tovar">
+                <img src="%s" alt="tovar">
+                <div class="tovinfo">
+                    <div class="tovchar">
+                        <p>%s</p>
+                        <p>%s</p>
+                    </div>
+                    <div class="number-input">
+                        <button type="button" class="decrease" data-id="%d">-</button>
+                        <input type="number" value="%s" min="0" class="quantity-input" data-id="%d">
+                        <button type="button" class="increase" data-id="%d">+</button>
+                    </div>
+                    <p class="tovprice">%d ₽</p>
+                    <div class="tovbtns">
+                        <button type="button"><img src="assets/img/Heart.png" alt="fav"></button>
+                        <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
+                    </div>
+                </div>
+            </div>', 
+            htmlspecialchars($item['pimage']), 
+            htmlspecialchars($item['pname']), 
+            htmlspecialchars($item['description']), 
+            $item['id_product'], // id_product добавлен в кнопку уменьшения
+            htmlspecialchars($item['count']), 
+            $item['id_product'], // id_product добавлен в input
+            $item['id_product'], // id_product добавлен в кнопку увеличения
+            intval($item['price']), // Используем intval для целого числа
+            $item['id_product'] // id_product добавлен для кнопки удаления
+        );
+        
+        
         }
-        $data .= '</div>';
+
+        $data .= '</form>';
         return $data;
-    }else{
+    } else {
         return '<h4 class="none">Заказов не найдено</h4>';
     }
 }
+
+
+
+
 
 function fnOutCardsProduct(){
     global $connect;
@@ -156,7 +190,7 @@ function fnindex($typeId) {
     <img src="%s" alt="tovar">
     <div class="price">
         <p>%s₽</p> 
-        <button><img src="assets/img/Heart.png" alt="fav"></button>
+       <button type="button"><img src="assets/img/Heart.png" alt="fav"></button>
     </div>
     <div class="descrip">
         <p>%s</p>
@@ -235,7 +269,7 @@ function fnindexnew($typeId) {
     <img src="%s" alt="tovar">
     <div class="price">
         <p>%s₽</p> 
-        <button><img src="assets/img/Heart.png" alt="fav"></button>
+        <button type="button" name="id_product" value="%s" onclick="addToFavorites(this)"><img src="assets/img/Heart.png" alt="fav"></button>
     </div>
     <div class="descrip">
         <p>%s</p>
@@ -259,7 +293,7 @@ function fnindexnew($typeId) {
         <span>В корзину</span>
     </button>
 </form>
-            ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
+            ', $item['pimage'], $item['price'], $item['id'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';
         return $data;

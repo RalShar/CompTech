@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("assets/function/config.php");
+include("assets/function/function.php");
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -45,7 +50,7 @@
               <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
               <span>Профиль</span>
             </button>
-            <button type="button" onclick="location.href='cart.html'">
+            <button type="button" onclick="location.href='cart.php'">
               <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
               <span>Корзина</span>
             </button>
@@ -77,45 +82,8 @@
             <div class="cart">
         <div class="tovarcont">
             <h1>Корзина</h1>
-            <div class="tovar">
-      <img src="assets/img/ssd.webp" alt="tovar">
-      <div class="tovinfo">
-        <div class="tovchar">
-            <p>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</p>
-            <p>внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280</p>
-        </div>
-        <div class="number-input">
-            <button id="decrease">-</button>
-            <input type="number" value="1" min="0">
-            <button id="increase">+</button>
-        </div>
-        <p class="tovprice">6 840 ₽</p>
-        <div class="tovbtns">
-        <button><img src="assets/img/Heart.png" alt="fav"></button>
-        <button><img src="assets/img/Trash.png" alt="del"></button>
-    </div>
-      </div>
-    </div>
-    <div class="tovleft">
-    <div class="tovar">
-        <img src="assets/img/ssd.webp" alt="tovar">
-        <div class="tovinfo">
-          <div class="tovchar">
-              <p>Накопитель SSD 1Tb Kingston NV2 (SNV2S/1000G)</p>
-              <p>внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280</p>
-          </div>
-          <div class="number-input">
-              <button id="decrease">-</button>
-              <input type="number" value="1" min="0">
-              <button id="increase">+</button>
-          </div>
-          <p class="tovprice">6 840 ₽</p>
-          <div class="tovbtns">
-          <button><img src="assets/img/Heart.png" alt="fav"></button>
-          <button><img src="assets/img/Trash.png" alt="del"></button>
-      </div>
-        </div>
-      </div>
+            <?=fnOutCardsUser()?>   
+    <div class="tovleft">  
       <div class="order">
 <h1>Оформление заказа</h1>
 <form class="ordercont" id="myForm">
@@ -254,20 +222,86 @@
       </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const numberInput = document.getElementById('number');
-    const increaseButton = document.getElementById('increase');
-    const decreaseButton = document.getElementById('decrease');
+document.addEventListener('DOMContentLoaded', () => {
+    // Находим все элементы с классом .number-input (это ваши инпуты количества)
+    const quantityInputs = document.querySelectorAll('.quantity-input');
 
-    increaseButton.addEventListener('click', () => {
-        numberInput.value = parseInt(numberInput.value) + 1;
+    quantityInputs.forEach(input => {
+        const productId = input.getAttribute('data-id'); // Получаем id продукта из атрибута data-id
+        const increaseButton = input.nextElementSibling; // Кнопка увеличения
+        const decreaseButton = input.previousElementSibling; // Кнопка уменьшения
+
+        // Обработчик для кнопки увеличения
+        increaseButton.addEventListener('click', () => {
+            input.value = parseInt(input.value) + 1; // Увеличиваем значение
+            updateQuantity(productId, input.value); // Обновляем количество на сервере
+        });
+
+        // Обработчик для кнопки уменьшения
+        decreaseButton.addEventListener('click', () => {
+            input.value = Math.max(0, parseInt(input.value) - 1); // Уменьшаем значение, не ниже 0
+            updateQuantity(productId, input.value); // Обновляем количество на сервере
+        });
+
+        // Обработчик для изменения значения в input
+        input.addEventListener('change', () => {
+            updateQuantity(productId, input.value); // Обновляем количество на сервере
+        });
     });
 
-    decreaseButton.addEventListener('click', () => {
-        numberInput.value = Math.max(0, parseInt(numberInput.value) - 1);
+    // Функция для отправки AJAX-запроса на обновление количества
+    function updateQuantity(productId, newCount) {
+      fetch('assets/function/update-order.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id_product: productId, count: newCount }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Количество обновлено успешно');
+            } else {
+                console.error('Ошибка при обновлении количества');
+            }
+        })
+        .catch(error => console.error('Ошибка:', error));
+    }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.delete');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+
+            if (confirm('Вы уверены, что хотите удалить этот товар из корзины?')) {
+                fetch('assets/function/delete-item.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id_product: productId }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Товар успешно удален из корзины.');
+                        // Здесь можно обновить интерфейс, чтобы убрать удаленный товар
+                        location.reload(); // Перезагрузите страницу или удалите элемент из DOM
+                    } else {
+                        alert('Ошибка при удалении товара: ' + data.error);
+                    }
+                })
+                .catch(error => console.error('Ошибка:', error));
+            }
+        });
     });
 });
-    </script>
+</script>
      <script>
       const deliveryRadio = document.getElementById('delivery');
       const fromShopRadio = document.getElementById('fromshop');
@@ -356,5 +390,6 @@ window.onclick = function(event) {
   }
 } 
 </script>
+
   </body>
 </html>

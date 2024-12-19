@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 19 2024 г., 16:28
+-- Время создания: Дек 18 2024 г., 19:50
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -24,28 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `feedback`
---
-
-CREATE TABLE `feedback` (
-  `id` int NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `message` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Дамп данных таблицы `feedback`
---
-
-INSERT INTO `feedback` (`id`, `email`, `name`, `message`, `created_at`) VALUES
-(4, 'user@mail.ru', 'das', 'dasd', '2024-12-18 22:43:18'),
-(5, 'user@mail.ru', 'das', 'dass', '2024-12-18 22:45:09');
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `order`
 --
 
@@ -53,15 +31,27 @@ CREATE TABLE `order` (
   `id` int NOT NULL,
   `id_user` int NOT NULL,
   `id_product` int NOT NULL,
-  `count` int NOT NULL DEFAULT '0'
+  `id_status` int NOT NULL,
+  `count` int NOT NULL DEFAULT '0',
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `order`
 --
 
-INSERT INTO `order` (`id`, `id_user`, `id_product`, `count`) VALUES
-(16, 1, 1, 2);
+INSERT INTO `order` (`id`, `id_user`, `id_product`, `id_status`, `count`, `address`) VALUES
+(1, 3, 1, 3, 12, 'Адресс'),
+(2, 3, 1, 2, 1, 'Адрес'),
+(4, 4, 1, 3, 2, 'fasfas'),
+(8, 1, 2, 2, 2, ''),
+(9, 1, 2, 2, 2, ''),
+(10, 1, 2, 2, 1, ''),
+(11, 1, 2, 2, 2, ''),
+(12, 1, 2, 2, 0, ''),
+(13, 1, 2, 2, 0, ''),
+(14, 1, 2, 2, 0, ''),
+(15, 1, 2, 3, 0, '');
 
 -- --------------------------------------------------------
 
@@ -89,8 +79,7 @@ INSERT INTO `product` (`id`, `name`, `type`, `manufacturer`, `description`, `pri
 (3, 'NVIDIA GeForce RTX 4060 MSI 8Gb (RTX 4060 VENTUS 2X BLACK 8G OC)', 'Видеокарта', 'MSI', 'PCI-E 4.0, ядро - 1830 МГц, Boost - 2505 МГц, 8 Гб памяти GDDR6 17000 МГц, 128 бит, HDMI, 3xDisplayPort, длина 199 мм, Retail', '45040', 'assets/img/3.webp'),
 (4, '2Tb SATA-III Seagate Barracuda (ST2000DM008)', 'HDD', 'Seagate', 'внутренний HDD, 3.5\", 2000 Гб, SATA-III, 7200 об/мин, кэш - 256 Мб', '8010', 'assets/img/4.webp'),
 (5, '1Tb Kingston NV2 (SNV2S/1000G)', 'SSD', 'Kingston', 'внутренний SSD, M.2, 1000 Гб, PCI-E 4.0 x4, NVMe, чтение: 3500 МБ/сек, запись: 2100 МБ/сек, 2280', '6940', 'assets/img/5.webp'),
-(6, 'Zalman N4 Rev.1 Black', 'Корпус', 'Zalman', 'корпус Midi-Tower, поддержка плат ATX, mATX, Mini-ITX, без БП, с окном, длина видеокарты до 315 мм, высота кулера до 163 мм, подсветка, 2xUSB 2.0, USB 3.0', '5930', 'assets/img/6.webp'),
-(7, '32Gb DDR4 3200MHz Kingston Fury Beast Black (KF432C16BB1K2/32)', 'Оперативная память', 'Kingston', '32 Гб, 2 модуля DDR4, 25600 Мб/с, CL16, 1.35 В, XMP профиль, радиатор', '8420', 'assets/img/8.webp');
+(6, 'Zalman N4 Rev.1 Black', 'Корпус', 'Zalman', 'корпус Midi-Tower, поддержка плат ATX, mATX, Mini-ITX, без БП, с окном, длина видеокарты до 315 мм, высота кулера до 163 мм, подсветка, 2xUSB 2.0, USB 3.0', '5930', 'assets/img/6.webp');
 
 -- --------------------------------------------------------
 
@@ -162,18 +151,13 @@ INSERT INTO `user` (`id`, `id_role`, `login`, `password`, `full_name`, `phone`) 
 --
 
 --
--- Индексы таблицы `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Индексы таблицы `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_product` (`id_product`);
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_status` (`id_status`);
 
 --
 -- Индексы таблицы `product`
@@ -205,22 +189,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT для таблицы `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT для таблицы `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `role`

@@ -21,17 +21,21 @@ margin-top: 1%;
 .tovar{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 900px;
     border-top: 1px solid black;
 }
 
 .tovar img{
     width: 140px;
     height: auto;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 .tovinfo{
     display: flex;
-    width: 700px;
+    width: 900px;
+    margin-top: 1%;
+    margin-bottom: 2%;
     margin-left: 2%;
 }
 .tovchar{
@@ -92,7 +96,7 @@ margin-top: 1%;
     -moz-appearance: textfield; /* Для Firefox */
 }
 .tovprice{
-    width: 57px;
+    width: 90px;
     font-weight: bold;
     margin: auto;
     margin-left: 2%;
@@ -112,6 +116,7 @@ margin-top: 1%;
     border: none;
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 .tovbtns img{
     width: 25px;
