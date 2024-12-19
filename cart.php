@@ -222,6 +222,36 @@ include("assets/function/function.php");
       </div>
     </footer>
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const favoriteButtons = document.querySelectorAll('.favorite');
+
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+
+            fetch('assets/function/add-to-favorites.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id_product: productId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Товар добавлен в избранное!');
+                } else {
+                    alert('Ошибка: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+        });
+    });
+});
+    </script>
+    <script>
 document.addEventListener('DOMContentLoaded', () => {
     // Находим все элементы с классом .number-input (это ваши инпуты количества)
     const quantityInputs = document.querySelectorAll('.quantity-input');

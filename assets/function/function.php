@@ -32,7 +32,7 @@ function fnOutCardsUser () {
                     </div>
                     <p class="tovprice">%d ₽</p>
                     <div class="tovbtns">
-                        <button type="button"><img src="assets/img/Heart.png" alt="fav"></button>
+                        <button type="button" class="favorite" data-id="%d"><img src="assets/img/Heart.png" alt="fav"></button>
                         <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
                     </div>
                 </div>
@@ -40,15 +40,14 @@ function fnOutCardsUser () {
             htmlspecialchars($item['pimage']), 
             htmlspecialchars($item['pname']), 
             htmlspecialchars($item['description']), 
-            $item['id_product'], // id_product добавлен в кнопку уменьшения
+            $item['id_product'], // id_product для кнопки уменьшения
             htmlspecialchars($item['count']), 
-            $item['id_product'], // id_product добавлен в input
-            $item['id_product'], // id_product добавлен в кнопку увеличения
+            $item['id_product'], // id_product для поля ввода
+            $item['id_product'], // id_product для кнопки увеличения
             intval($item['price']), // Используем intval для целого числа
-            $item['id_product'] // id_product добавлен для кнопки удаления
+            $item['id_product'], // id_product для кнопки избранного
+            $item['id_product']  // id_product для кнопки удаления
         );
-        
-        
         }
 
         $data .= '</form>';
@@ -57,6 +56,7 @@ function fnOutCardsUser () {
         return '<h4 class="none">Заказов не найдено</h4>';
     }
 }
+
 
 
 
