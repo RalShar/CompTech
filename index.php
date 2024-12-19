@@ -299,6 +299,27 @@ include("assets/function/function.php");
         </div>
       </div>
     </footer>
+    <script>
+function addToCart(button) {
+    var productId = button.value; // Получаем id_product из кнопки
+    var xhr = new XMLHttpRequest(); // Создаем новый XMLHttpRequest объект
+    xhr.open("POST", "assets/function/add-order.php", true); // Указываем метод и URL
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок
+
+    // Обработка ответа от сервера
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Если успешно, выводим ответ
+            alert(xhr.responseText);
+        } else {
+            alert("Произошла ошибка: " + xhr.status);
+        }
+    };
+
+    // Отправляем данные на сервер
+    xhr.send("id_product=" + encodeURIComponent(productId));
+}
+</script>
       <script>
         function openCity(evt, cityName) {
   // Declare all variables

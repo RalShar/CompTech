@@ -152,31 +152,34 @@ function fnindex($typeId) {
         
         foreach ($result as $item) {
             $data .= sprintf('
-            <form action="assets/function/add-order.php" method="POST" class="tab1">       
-                <img src="%s" alt="tovar">
-                <div class="price">
-                    <p>%s₽</p> 
-                    <button><img src="assets/img/Heart.png" alt="fav"></button>
-                </div>
-                <div class="descrip">
-                    <p>%s</p>
-                    <p>%s</p>
-                </div>
-                <div class="review">
-                    <div class="stars">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                    </div>
-                    <div class="reviewbut">
-                        <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
-                        <p>152</p>
-                    </div>
-                </div>
-                <button class="tovbut" id="%s" type="submit"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-                </form> 
+            <form id="add-to-cart-form" action="assets/function/add-order.php" method="POST" class="tab1">       
+    <img src="%s" alt="tovar">
+    <div class="price">
+        <p>%s₽</p> 
+        <button><img src="assets/img/Heart.png" alt="fav"></button>
+    </div>
+    <div class="descrip">
+        <p>%s</p>
+        <p>%s</p>
+    </div>
+    <div class="review">
+        <div class="stars">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+        </div>
+        <div class="reviewbut">
+            <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
+            <p>152</p>
+        </div>
+    </div>
+    <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)">
+        <img src="assets/img/Shopping_Card-192x192.png" alt="cart">
+        <span>В корзину</span>
+    </button>
+</form> 
             ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';
@@ -228,31 +231,34 @@ function fnindexnew($typeId) {
         
         foreach ($result as $item) {
             $data .= sprintf('
-            <div class="tab1">        
-                <img src="%s" alt="tovar">
-                <div class="price">
-                    <p>%s₽</p> 
-                    <button><img src="assets/img/Heart.png" alt="fav"></button>
-                </div>
-                <div class="descrip">
-                    <p>%s</p>
-                    <p>%s</p>
-                </div>
-                <div class="review">
-                    <div class="stars">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                        <img src="assets/img/star.png" alt="star">
-                    </div>
-                    <div class="reviewbut">
-                        <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
-                        <p>152</p>
-                    </div>
-                </div>
-                <button class="tovbut" name="%s"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-            </div>
+             <form id="add-to-cart-form" action="assets/function/add-order.php" method="POST" class="tab1">       
+    <img src="%s" alt="tovar">
+    <div class="price">
+        <p>%s₽</p> 
+        <button><img src="assets/img/Heart.png" alt="fav"></button>
+    </div>
+    <div class="descrip">
+        <p>%s</p>
+        <p>%s</p>
+    </div>
+    <div class="review">
+        <div class="stars">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+        </div>
+        <div class="reviewbut">
+            <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
+            <p>152</p>
+        </div>
+    </div>
+    <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)">
+        <img src="assets/img/Shopping_Card-192x192.png" alt="cart">
+        <span>В корзину</span>
+    </button>
+</form>
             ', $item['pimage'], $item['price'], $item['pname'], $item['descrip'], $item['id']);
         }
         $data .= '</div>';

@@ -1,30 +1,56 @@
 <?php
-    session_start();
+session_start();
+include('config.php');
 
-    include('config.php');
+// Проверка, был ли отправлен POST-запрос
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Получаем данные из формы
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-    $sql = sprintf("SELECT * FROM `user` WHERE `login` = '%s' AND `password` = '%s'", $_POST['login'], $_POST['password']);
+    // Подготовленный запрос для получения пользователя
+    $stmt = $connect->prepare("SELECT * FROM `user` WHERE `login` = ?");
+    $stmt->bind_param("s", $login);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $result = $connect->query($sql);
-
-    if($result->num_rows){
+    // Проверка, существует ли пользователь
+    if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $sql = "SELECT `code` FROM `role` WHERE `id` = '{$row['id_role']}'";
-        $role = $connect->query($sql)->fetch_assoc();
 
-        $_SESSION['login'] = $row['login'];
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['role'] = $role['code'];
+        // Проверка правильности пароля (без хеширования)
+        if ($password === $row['password']) {
+            // Получаем роль пользователя
+            $roleStmt = $connect->prepare("SELECT `code` FROM `role` WHERE `id` = ?");
+            $roleStmt->bind_param("i", $row['id_role']);
+            $roleStmt->execute();
+            $role = $roleStmt->get_result()->fetch_assoc();
 
-        if($_SESSION['role'] == "admin"){
-            header("Location: /admin/adminpanel.php");
+            // Устанавливаем сессионные переменные
+            $_SESSION['login'] = $row['login'];
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['role'] = $role['code'];
+
+            // Перенаправление в зависимости от роли
+            if ($_SESSION['role'] === "admin") {
+                header("Location: /admin/adminpanel.php");
+            } else {
+                header("Location: ../profile.php");
+            }
+            exit;
+        } else {
+            // Неверный пароль
+            header("Location: login.php?valide_error=Некорректный логин или пароль");
             exit;
         }
-        
-        header("Location: ../profile.php");
-        exit;
-    }else{
+    } else {
+        // Пользователь не найден
         header("Location: login.php?valide_error=Некорректный логин или пароль");
         exit;
     }
+} else {
+    // Если не POST-запрос, перенаправляем на страницу входа
+    header("Location: login.php");
+    exit;
+}
 ?>
