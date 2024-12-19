@@ -265,7 +265,7 @@ function fnindexnew($typeId) {
         
         foreach ($result as $item) {
             $data .= sprintf('
-             <form id="add-to-cart-form" action="assets/function/add-order.php" method="POST" class="tab1">       
+             <form id="add-to-cart-form" class="tab1">       
     <img src="%s" alt="tovar">
     <div class="price">
         <p>%s₽</p> 
