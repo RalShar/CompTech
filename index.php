@@ -173,7 +173,7 @@ include("assets/function/function.php");
     </div>
       <!-- Tab content -->
       <div id="all1" class="tabcontent3">
-        <div class="tabnews tabnews2">
+        <div class="tabnews tabnews2" onClick="location.href='intelarc'">
           <div class="tabvec2 tabvec1">
             <p>Intel представила Arc B580 и Arc B570</p>
             <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
@@ -185,7 +185,7 @@ include("assets/function/function.php");
           <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
         </div>
     </div>
-    <div class="tabnews tabnews2">
+         <div class="tabnews tabnews2" onClick="location.href='intelarc'">
       <div class="tabvec2 tabvec1">
         <p>Intel представила Arc B580 и Arc B570</p>
         <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
@@ -197,39 +197,34 @@ include("assets/function/function.php");
       <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
     </div>
 </div>
-<div class="tabnews tabnews2">
+      <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
   <div class="tabvec2 tabvec1">
     <p>Intel представила Arc B580 и Arc B570</p>
     <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
   </div>
 </div>
       </div>  
-        <div id="news" class="tabcontent3">
-          <div class="tabnews tabnews2">
+        <div id="news" class="tabcontent3">     <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
             <div class="tabvec2 tabvec1">
               <p>Intel представила Arc B580 и Arc B570</p>
               <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
             </div>
-        </div>
-        <div class="tabnews tabnews2">
+        </div>     <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
           <div class="tabvec2 tabvec1">
             <p>Intel представила Arc B580 и Arc B570</p>
             <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
           </div>
-      </div>
-      <div class="tabnews tabnews2">
+      </div>     <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
         <div class="tabvec2 tabvec1">
           <p>Intel представила Arc B580 и Arc B570</p>
           <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
         </div>
-    </div>
-    <div class="tabnews tabnews2">
+    </div>     <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
       <div class="tabvec2 tabvec1">
         <p>Intel представила Arc B580 и Arc B570</p>
         <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
       </div>
-  </div>
-  <div class="tabnews tabnews2">
+  </div>     <div class="tabnews tabnews2" onClick="location.href='intelarc.html'">
     <div class="tabvec2 tabvec1">
       <p>Intel представила Arc B580 и Arc B570</p>
       <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
