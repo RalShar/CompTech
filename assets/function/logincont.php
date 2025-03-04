@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        // Проверка правильности пароля (без хеширования)
-        if ($password === $row['password']) {
+        // Проверка правильности пароля с использованием хеширования
+        if (password_verify($password, $row['password'])) {
             // Получаем роль пользователя
             $roleStmt = $connect->prepare("SELECT `code` FROM `role` WHERE `id` = ?");
             $roleStmt->bind_param("i", $row['id_role']);
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_SESSION['role'] === "admin") {
                 header("Location: /admin/adminpanel.php");
             } else {
-                header("Location: ../profile.php");
+                header("Location: ../../index.php");
             }
             exit;
         } else {

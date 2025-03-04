@@ -1,390 +1,389 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/news.css" />
-    <link rel="stylesheet" href="assets/css/headfont.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>CompTech</title>
-  </head>
-  <body>
-    <header>
-        <div class="headup">
-          <nav>
-            <a href="about.html">О нас</a>
-            <a href="guarantee.html">Гарантии и возврат</a>
-            <a href="FAQ.html">FAQ</a>
-            <a href="delivery.html">Доставка и оплата</a>
-            <a href="contacts.html">Контакты</a>
-          </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/news.css" />
+  <link rel="stylesheet" href="assets/css/headfont.css"> <!--CSS для шапки и футера-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet"> <!--Подключение шрифта-->
+  <title>CompTech</title>
+</head>
+
+<body>
+  <header>
+    <div class="headup">
+      <nav>
+        <a href="about.html">О нас</a>
+        <a href="guarantee.html">Гарантии и возврат</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+    <div class="headdowncont">
+      <div class="headdown">
+        <img src="assets/img/logo.png" alt="logo" class="logo" onclick="location.href='index.php'" />
+        <button class="catalogbut" onclick="location.href='catalog.php'">
+          <span>Каталог</span><img src="assets/img/catalog.png" alt="catalog" />
+        </button>
+        <div class="search">
+          <input type="text" placeholder="Поиск" />
+          <img src="assets/img/Search.png" alt="searchicon" />
         </div>
-        <div class="headdowncont">
-          <div class="headdown">
-            <img
-              src="assets/img/logo.png"
-              alt="logo"
-              class="logo"
-              onclick="location.href='index.php'"
-            />
-            <button class="catalogbut" onclick="location.href='catalog.php'">
-              <span>Каталог</span
-              ><img src="assets/img/catalog.png" alt="catalog" />
-            </button>
-            <div class="search">
-              <input type="text" placeholder="Поиск" />
-              <img src="assets/img/Search.png" alt="searchicon" />
-            </div>
-            <nav class="headbtns">
-              <button type="button" onclick="location.href='profile.php'">
-                <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
-                <span>Профиль</span>
-              </button>
-              <button type="button" onclick="location.href='cart.php'">
-                <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
-                <span>Корзина</span>
-              </button>
-              <button type="button" onclick="location.href='fav.php'">
-                <img src="assets/img/Heart-192x192.png" alt="fav" />
-                <span>Избранное</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
-      <div id="myModal" class="modal">
-        <!-- Контент в модальном окне -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="obrat">
-            <h1>Обратная связь</h1>
-            <form class="obratform" action="assets/function/feedback.php" method="POST">
-            <input type="email" placeholder="E-mail" name="email">
-            <input type="text" placeholder="Имя" name="name">
-            <textarea placeholder="Сообщение" name="message"></textarea>
-            <button type="submit">Отправить</button>
-          </form>
+        <nav class="headbtns">
+          <button type="button" onclick="location.href='profile.php'">
+            <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
+            <span>Профиль</span>
+          </button>
+          <button type="button" onclick="location.href='cart.php'">
+            <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
+            <span>Корзина</span>
+          </button>
+          <button type="button" onclick="location.href='fav.php'">
+            <img src="assets/img/Heart-192x192.png" alt="fav" />
+            <span>Избранное</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="myModal" class="modal">
+    <!-- Контент в модальном окне -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="obrat">
+        <h1>Обратная связь</h1>
+        <form class="obratform" action="assets/function/feedback.php" method="POST">
+          <input type="email" placeholder="E-mail" name="email">
+          <input type="text" placeholder="Имя" name="name">
+          <textarea placeholder="Сообщение" name="message"></textarea>
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <section class="tabcont">
+    <div class="tabs">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'all')" id="defaultOpen">Всё</button>
+        <button class="tablinks" onclick="openCity(event, 'news')">Новости</button>
+        <button class="tablinks" onclick="openCity(event, 'reviews')">Обзоры</button>
+      </div>
+    </div>
+    <!--новости и обзоры -->
+    <div id="all" class="tabcontent">
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
           </div>
         </div>
       </div>
-    <section class="tabcont">
-        <div class="tabs">
-        <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'all')" id="defaultOpen">Всё</button>
-            <button class="tablinks" onclick="openCity(event, 'news')">Новости</button>
-            <button class="tablinks" onclick="openCity(event, 'reviews')">Обзоры</button>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
           </div>
         </div>
-          <!-- Tab content -->
-          <div id="all" class="tabcontent">
-            <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1 tab2">
-            <div class="triang triang2">
-                <div class="triangtxt">
-                <h4>Ultrawide или несколько мониторов?</h4>
-                <p>Трудности выбора и подводные камни разных вариантов</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1 tab2">
-            <div class="triang triang2">
-                <div class="triangtxt">
-                <h4>Ultrawide или несколько мониторов?</h4>
-                <p>Трудности выбора и подводные камни разных вариантов</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1 tab2">
-            <div class="triang triang2">
-                <div class="triangtxt">
-                <h4>Ultrawide или несколько мониторов?</h4>
-                <p>Трудности выбора и подводные камни разных вариантов</p>
-            </div>
-            </div>
-        </div>
-        <div class="tab1">
-            <div class="triang">
-                <div class="triangtxt">
-                <h4>Intel представила Arc B580 и Arc B570</h4>
-                <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-            </div>
-            </div>
-        </div>
-          </div>
-          
-          <div id="news" class="tabcontent">
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1">
-                <div class="triang">
-                    <div class="triangtxt">
-                    <h4>Intel представила Arc B580 и Arc B570</h4>
-                    <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
-                </div>
-                </div>
-            </div>
-          </div>
-          
-          <div id="reviews" class="tabcontent">
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-            <div class="tab1 tab2">
-                <div class="triang triang2">
-                    <div class="triangtxt">
-                    <h4>Ultrawide или несколько мониторов?</h4>
-                    <p>Трудности выбора и подводные камни разных вариантов</p>
-                </div>
-                </div>
-            </div>
-          </div>
-    </section>
-    <footer>
-        <div class="foot">
-          <div class="tel">
-            <a href="tel:79457854558">7-945-785-45-58</a>
-            <a href="tel:79457552511">7-945-755-25-11</a>
-            <p>Бесплатно по России</p>
-          </div>
-          <div class="links1">
-            <a href="about.html">О компании</a>
-            <a href="delivery.html">Доставка и оплата</a>
-            <a href="guarantee.html">Гарантии и возврат</a>
-            <a href="contacts.html">Контакты</a>
-            <div class="soc">
-              <img src="assets/img/vk.png" alt="vk" />
-              <img src="assets/img/telegram.png" alt="telegram" />
-              <img src="assets/img/youtube.png" alt="youtube" />
-            </div>
-          </div>
-          <div class="links2">
-            <a href="">Что с моим заказом?</a>
-            <a href="FAQ.html">FAQ</a>
-            <a id="myBtn" style="cursor:pointer;">Обратная связь</a>
-            <div class="paymet">
-              <img src="assets/img/mastercard.png" alt="mastercard" />
-              <img src="assets/img/Visa.png" alt="Visa" />
-              <img src="assets/img/Mir.png" alt="mir" />
-            </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
           </div>
         </div>
-      </footer>
-    <script>
-        function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+    <div id="news" class="tabcontent">
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1">
+        <div class="triang">
+          <div class="triangtxt">
+            <h4>Intel представила Arc B580 и Arc B570</h4>
+            <p>Настоящие конкуренты RTX 4060 и RX 7600</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+    <div id="reviews" class="tabcontent">
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab1 tab2">
+        <div class="triang triang2">
+          <div class="triangtxt">
+            <h4>Ultrawide или несколько мониторов?</h4>
+            <p>Трудности выбора и подводные камни разных вариантов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="foot">
+      <div class="tel">
+        <a href="tel:79457854558">7-945-785-45-58</a>
+        <a href="tel:79457552511">7-945-755-25-11</a>
+        <p>Бесплатно по России</p>
+      </div>
+      <div class="links1">
+        <a href="about.html">О компании</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="guarantee.html">Гарантии и возврат</a>
+        <a href="contacts.html">Контакты</a>
+        <div class="soc">
+          <img src="assets/img/vk.png" alt="vk" />
+          <img src="assets/img/telegram.png" alt="telegram" />
+          <img src="assets/img/youtube.png" alt="youtube" />
+        </div>
+      </div>
+      <div class="links2">
+        <a href="">Что с моим заказом?</a>
+        <a href="FAQ.html">FAQ</a>
+        <a id="myBtn" style="cursor:pointer;">Обратная связь</a>
+        <div class="paymet">
+          <img src="assets/img/mastercard.png" alt="mastercard" />
+          <img src="assets/img/Visa.png" alt="Visa" />
+          <img src="assets/img/Mir.png" alt="mir" />
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function openCity(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "flex";
-  evt.currentTarget.className += " active";
-} 
-    </script>
-    <script>
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-        </script>
-        <script>
-            // Get the modal
-          var modal = document.getElementById("myModal");
-          
-          // Get the button that opens the modal
-          var btn = document.getElementById("myBtn");
-          
-          // Get the <span> element that closes the modal
-          var span = document.getElementsByClassName("close")[0];
-          
-          // When the user clicks on the button, open the modal
-          btn.onclick = function() {
-            modal.style.display = "block";
-          }
-          
-          // When the user clicks on <span> (x), close the modal
-          span.onclick = function() {
-            modal.style.display = "none";
-          }
-          
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
-            }
-          } 
-          </script>
-  </body>
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "flex";
+      evt.currentTarget.className += " active";
+    } 
+  </script>
+  <script>
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    } 
+  </script>
+</body>
+
 </html>

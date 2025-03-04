@@ -348,6 +348,88 @@ function fnindexnew($typeId) {
         return $data;
     } 
 }
+function mobindexnew($typeId) {
+    global $connect;
+
+    // Маппинг id на типы товаров
+    $typeMapping = [
+        'gpu1' => 'Видеокарта',
+        'cpu1' => 'Процессор',
+        'ram1' => 'Оперативная память',
+        'ssd1' => 'SSD',
+        'hdd1' => 'HDD',
+        'case1' => 'Корпус',
+        'mother1' => 'Материнская плата',
+        'all2' => 'all' // Для выбора всех товаров
+        // Добавьте другие типы по мере необходимости
+    ];
+
+    // Проверяем, если id равен 'all', то выводим все товары
+    if ($typeId === 'all2') {
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type` , `id` AS `id`
+                FROM `product`
+                ORDER BY `id` DESC
+                LIMIT 5";
+    } else {
+        // Проверяем, существует ли тип в маппинге
+        if (!array_key_exists($typeId, $typeMapping)) {
+            return '<h4 class="none">Неверный тип товара</h4>';
+        }
+
+        $productType = $typeMapping[$typeId];
+
+        // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
+        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
+                FROM `product` 
+                WHERE `type` = '$productType' 
+                LIMIT 5";
+    }
+
+    $result = $connect->query($sql);
+
+    if ($result->num_rows) {
+        // Добавляем значение $typeId в атрибут id
+        $data = sprintf('<div id="%s" class="swiper-wrapper">', htmlspecialchars($typeId));
+        
+        foreach ($result as $item) {
+            $data .= sprintf('
+    <div class="swiper-slide"><form id="add-to-cart-form" class="tab1">       
+    <img src="%s" alt="tovar">
+    <div class="price">
+        <p>%s₽</p> 
+        <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
+    </div>
+    <div class="descrip">
+        <p>%s</p>
+        <p>%s</p>
+    </div>
+    <div class="review">
+        <div class="stars">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+            <img src="assets/img/star.png" alt="star">
+        </div>
+        <div class="reviewbut">
+            <button><img src="assets/img/Commen-192x192.png" alt="revies"></button>
+            <p>152</p>
+        </div>
+    </div>
+    <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)">
+        <img src="assets/img/Shopping_Card-192x192.png" alt="cart">
+        <span>В корзину</span>
+    </button>
+</form></div>
+
+
+             
+            ', $item['pimage'], $item['price'], $item['id'], $item['pname'], $item['descrip'], $item['id']);
+        }
+        $data .= '</div>';
+        return $data;
+    } 
+}
 function fncatalog($typeId) {
     global $connect;
 

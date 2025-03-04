@@ -1,4 +1,49 @@
-*{
+@media (min-width: 400px) and (max-width: 470px){ /*Адаптация под мобильные устройства*/
+.about{
+    height: 100% !important;
+}
+    .abt{
+    width: 90% !important;
+    flex-direction: column;
+}
+.about img{
+    width: 190px !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+.abttxt{
+    margin-bottom: 3%;
+}
+.abttxt p{
+    width: 100% !important;
+}
+.txtcont{
+    height: 100% !important;
+}
+.txts{
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 3%;
+}
+.listcont{
+    height: 100% !important;
+}
+.list{
+    margin-bottom: 2%;
+}
+.list ul{
+    width: 70% !important;
+}
+.list h2{
+margin-top: 2%;
+margin-bottom: 2%;
+margin-left: auto !important;
+margin-right: auto;
+font-size: 22px;
+}
+}
+*{  /* Сброс отступов*/
     margin: 0;
     padding: 0;
     font-family: 'roboto';

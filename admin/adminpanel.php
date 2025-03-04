@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../assets/function/function.php");
+include("../assets/function/function.php"); // Подключение функций php
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -8,12 +8,12 @@ include("../assets/function/function.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="https://unpkg.com/98.css" />
-    <title>RalShar's page</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css" /> <!--Подключение 98 CSS-->
+    <title>Панель администратора</title>
 </head>
 <body>
 <section class="adminwindow">
-    <div class="nav">
+    <div class="nav"><!--Навигация-->
         <div class="nav2">
             <div class="button1" style="position: relative; top: 0; left: 0" onmousedown="dragOBJ(this,event); return false;">
                 <button ondblclick="location.href='../index.php'">
@@ -29,7 +29,7 @@ include("../assets/function/function.php");
             </button>
         </div>
     </div>
-    <div class="window2 upload content" style="position: relative; top: 0; left: 0" id="content2">
+    <div class="window2 upload content" style="position: relative; top: 0; left: 0" id="content2"><!--Добавление товара-->
         <div class="title-bar" onmousedown="dragOBJ(this.parentNode, event); return false;">
             <div class="title-bar-text">
                 Добавить товар
@@ -74,18 +74,13 @@ include("../assets/function/function.php");
     </div>
 
             
-</section> <!-- Закрывающий тег для section -->
+</section>
 <footer>
     <div class="foot">
         <div class="footbut">
             <button type="submit"><img src="../assets/img/windows-0.png" alt="start"><p>Start</p></button>
-            <div class="dropdown-content">
-                <a href="#">Ссылка 1</a>
-                <a href="#">Ссылка 2</a>
-                <a href="#">Ссылка 3</a>
-            </div>
         </div>
-        <div class="status-bar time">
+        <div class="status-bar time"> <!--Часы-->
             <p class="status-bar-field" id="span"></p>
         </div>
     </div>

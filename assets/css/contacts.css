@@ -1,4 +1,16 @@
-*{
+@media (min-width: 400px) and (max-width: 470px){ /* Адаптация под мобильные устройства */
+.contacts{
+    height: 100% !important;
+}
+.conts{
+    flex-direction: column;
+}
+.contfirst{
+    width: 390px !important;
+    margin: auto;
+}
+}
+*{ /* Сброс отступов */
     margin: 0;
     padding: 0;
     font-family: 'roboto';
@@ -61,19 +73,25 @@ color: #767272;
     margin-top: 8%;
 }
 .time1{
+    width: 365px;
     display: flex;
     gap: 19%;
     color: black;
+    margin: auto;
 }
 .time2{
+    width: 355px;
     display: flex;
-    gap: 48%;
+    gap: 50%;
     color: black;
+    margin: auto;
 }
 .time3{
+    width: 355px;
     display: flex;
     gap: 39%;
     color: black;
+    margin: auto;
 }
 .address{
     text-align: center;

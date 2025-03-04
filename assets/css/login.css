@@ -3,7 +3,7 @@ body {
     font-family: roboto;
 }
 
-.main {
+.main { /* Задний фон */
     background-image: url("../img/login.jpg");
     background-size: 100%;
 }

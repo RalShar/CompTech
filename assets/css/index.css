@@ -1,4 +1,9 @@
-*{
+@media (min-width: 400px) and (max-width: 470px){ /* Адаптация под мобильные устройства */
+  .banner{
+    display: none !important;
+    }
+}
+*{ /* Сброс отступов */
     margin:0;
     padding:0;
     font-family: 'roboto';
@@ -53,6 +58,7 @@ margin-bottom: 3%;
     color: black;
     gap: 2.7%;
     flex-wrap: wrap;
+    width: 100%;
   } 
   .tabcontent {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
@@ -75,6 +81,8 @@ margin-bottom: 3%;
     color: black;
     gap: 1%;
     flex-wrap: wrap;
+    height: 75%;
+    justify-content: center;
   } 
   .tabcontent3 {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
@@ -87,7 +95,7 @@ margin-bottom: 3%;
   .tab1{
     display: flex;
     flex-direction: column;
-    width: 231px;
+    width: 17%;
     height: 430px;
     background-size: 100% ;
     background-position: 1%;
@@ -259,8 +267,8 @@ margin-left: 5%;
 margin-bottom: 0.5%;
 }
 .tabnews{
-  width: 250px;
-  height: 290px;
+  width: 19%;
+  height: 75%;
   background-image: url('../img/news2.webp');
   background-position: top;
   background-size: 100%;
@@ -270,12 +278,13 @@ margin-bottom: 0.5%;
 }
 .tabnews2{
   background-image: url('../img/news1.webp');
+  width: 19%;
 }
 .tabvec2{
   background-image: url('../img/Vector21.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 180px;
+  height: 70%;
   width: 100%;
   margin-top: 44%;
   border-radius: 0px 0px 7px 7px;
@@ -288,18 +297,22 @@ margin-bottom: 0.5%;
   margin-bottom: 0;
   margin-top: 33%;
   font-weight: bold;
-  width: 230px;
+  width: 90%;
 }
 .tabvec2 p:nth-of-type(2n){
   margin: auto;
   margin-bottom: 0;
   margin-top: 2%;
   font-weight: normal;
-  width: 230px;
+  width: 90%;
 }
 .banner{
   width: 1400px;
   margin: auto;
   margin-top: 1%;
   margin-bottom: 2%;
+}
+.swiper {
+  width: 600px;
+  height: 300px;
 }

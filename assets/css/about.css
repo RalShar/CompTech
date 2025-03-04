@@ -1,4 +1,67 @@
-*{
+
+@media (min-width: 400px) and (max-width: 470px){ /* Адаптация под мобильные устройства */
+.abt1cont{
+    flex-direction: column;
+    height: 830px !important;
+    gap: 2% !important;
+}
+.abt1cont img{
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.abt1{
+    max-width: 470px;
+    width: 90% !important;
+    margin: auto;
+    margin-bottom: 0;
+}
+.abt1 p{
+    max-width: 470px;
+width: 90% !important;
+}
+.abt2cont{
+    flex-direction: column;
+    height: 510px !important;
+    gap: 2% !important;
+}
+.abt2cont img{
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.abt2{
+    max-width: 470px;
+    width: 90% !important;
+    margin: auto;
+    margin-bottom: 0;
+}
+.abt2 p{
+    max-width: 470px;
+width: 90% !important;
+}
+.abt3cont{
+    flex-direction: column;
+    height: 510px !important;
+    gap: 2% !important;
+}
+.abt3cont img{
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.abt3{
+    max-width: 470px;
+    width: 90% !important;
+    margin: auto;
+    margin-bottom: 0;
+}
+.abt3 p{
+    max-width: 470px;
+width: 90% !important;
+}
+}
+*{ /* Сброс отступов */
     margin: 0;
     padding: 0;
     font-family: 'roboto';

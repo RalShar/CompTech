@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("assets/function/config.php");
-include("assets/function/function.php");
+include("assets/function/config.php"); // Подключение БД
+include("assets/function/function.php"); //Подключение функций php
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,13 +10,13 @@ include("assets/function/function.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CompTech</title>
     <link rel="stylesheet" href="assets/css/catalog.css">
-    <link rel="stylesheet" href="assets/css/headfont.css">
+    <link rel="stylesheet" href="assets/css/headfont.css"> <!--CSS Для шапки и футера-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
-    />
+    /> <!--Подключение шрифта-->
 </head>
 <body>
   <header>
@@ -62,7 +62,7 @@ include("assets/function/function.php");
       </div>
     </div>
   </header>
-      <div id="myModal" class="modal">
+      <div id="myModal" class="modal"><!--Модальное окно-->
         <!-- Контент в модальном окне -->
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -80,7 +80,7 @@ include("assets/function/function.php");
     <section class="catasec">
       <h1>Каталог</h1>
       <div class="catalog">
-<div class="filter">
+<div class="filter"><!--Фильтры-->
   <h2>Фильтры</h2>
 <div>
   <h3 class="filthead">Цена</h3>
@@ -132,7 +132,7 @@ include("assets/function/function.php");
   </div>
 </div>
 </div>
-<?=fncatalog('all')?> 
+<?=fncatalog('all')?> <!--Список товаров-->
 </div>
     </section>
     <footer>
@@ -156,7 +156,7 @@ include("assets/function/function.php");
         <div class="links2">
           <a href="">Что с моим заказом?</a>
           <a href="FAQ.html">FAQ</a>
-          <a id="myBtn" style="cursor:pointer;">Обратная связь</a>
+          <a id="myBtn" style="cursor:pointer;">Обратная связь</a><!--Вызов модального окна-->
           <div class="paymet">
             <img src="assets/img/mastercard.png" alt="mastercard" />
             <img src="assets/img/Visa.png" alt="Visa" />

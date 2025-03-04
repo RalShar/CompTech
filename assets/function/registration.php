@@ -15,15 +15,17 @@ if (!$role) {
     die("Ошибка получения роли пользователя.");
 }
 
+// Хеширование пароля
+$hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
 // Подготовка SQL-запроса
 $stmt = $connect->prepare("INSERT INTO `user`(`id_role`, `phone`, `login`, `password`, `full_name`) VALUES (?, ?, ?, ?, ?)");
 if (!$stmt) {
     die("Ошибка подготовки запроса: " . $connect->error);
 }
 
-
 // Привязка параметров
-$stmt->bind_param("issss", $role['id'], $_POST['tel'], $_POST['login'], $_POST['password'], $_POST['full_name']);
+$stmt->bind_param("issss", $role['id'], $_POST['tel'], $_POST['login'], $hashedPassword, $_POST['full_name']);
 
 // Выполнение запроса
 if (!$stmt->execute()) {

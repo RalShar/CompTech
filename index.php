@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("assets/function/config.php");
-include("assets/function/function.php");
+include("assets/function/config.php");  // Подключение бд
+include("assets/function/function.php"); // подключения функций
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -9,17 +9,23 @@ include("assets/function/function.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CompTech</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/headfont.css">
+    <link rel="stylesheet" href="assets/css/index.css"> <!--Стили для сайта -->
+    <link rel="stylesheet" href="assets/css/headfont.css"> <!--Стили для шапки и футера -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
-    />
+    /> <!--подключение шрифта -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/> <!--Подключение swiperJS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+  <!--Шапка сайта -->
   <header>
     <div class="headup">
       <nav>
@@ -95,7 +101,7 @@ include("assets/function/function.php");
             <button class="tablinks" onclick="openCity(event, 'case')">Корпуса</button>
           </div>
         </div>
-          <!-- Tab content --> 
+          <!-- Товары из БД --> 
           <?=fnindex('all')?>    
           <?=fnindex('cpu')?>  
           <?=fnindex('mother')?>   
@@ -103,7 +109,7 @@ include("assets/function/function.php");
           <?=fnindex('hdd')?>  
           <?=fnindex('ssd')?>  
           <?=fnindex('ram')?>  
-          <?=fnindex('case')?>                                       
+          <?=fnindex('case')?>                                     
     </section>
     <section class="actualconte">
       <h1>Актуально сейчас</h1>
@@ -152,7 +158,7 @@ include("assets/function/function.php");
           <button class="tablinks2" onclick="openCity2(event, 'case1')">Корпуса</button>
         </div>
       </div>
-        <!-- Tab content -->
+        <!-- Товары из БД -->
         <?=fnindexnew('all2')?>    
           <?=fnindexnew('cpu1')?>  
           <?=fnindexnew('mother1')?>   
@@ -171,7 +177,7 @@ include("assets/function/function.php");
         <button class="tablinks3" onclick="openCity3(event, 'review')">Обзоры</button>
       </div>
     </div>
-      <!-- Tab content -->
+      <!-- Новости и обзоры -->
       <div id="all1" class="tabcontent3">
         <div class="tabnews tabnews2" onClick="location.href='intelarc'">
           <div class="tabvec2 tabvec1">
@@ -294,7 +300,30 @@ include("assets/function/function.php");
           </div>
         </div>
       </div>
-    </footer>
+    </footer>  
+    <script>
+      const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+      </script>
     <script>
 function addToCart(button) {
     var productId = button.value; // Получаем id_product из кнопки
