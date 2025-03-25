@@ -1,13 +1,55 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	.formcont {
+		  width: 400px !important;
+}
+html{
+	height: 100%;
+}
+	section{
+		margin-top: 50% !important;
+		  width: 400px !important;
+		height: 530px;
+	}
+}
+@media (max-width: 399px) {
+	.formcont {
+		  width: 350px !important;
+}
+html{
+	height: 100%;
+}
+	section{
+		margin-top: 30% !important;
+		  width: 350px !important;
+		height: 530px;
+	}
+	.inputs{
+		width: 340px !important;
+	}
+	.inpt {
+		width: 340px !important;
+	}
+	.inpt input{
+		width: 335px !important;
+		margin: auto;
+	}
+}
+*{
+	margin: 0;
+	padding: 0;
+	font-family: roboto;
+}
 body {
-    margin: auto;
-    font-family: roboto;
+	    background-image: url("../img/login.jpg");
+    background-size: cover; /* Это заставит изображение занимать всю область */
+    background-position: center; /* Центрируем изображение */
 }
-
-.main { /* Задний фон */
-    background-image: url("../img/login.jpg");
-    background-size: 100%;
+section{
+	    display: flex;
+    justify-content: center;
+	margin: auto;
+	margin-top: 10%;
 }
-
 .formcont {
     display: flex;
     justify-content: center;
@@ -15,17 +57,14 @@ body {
     height: 530px;
     background-color: rgba(0, 0, 0, 23%);
    border-radius: 15px;
-    margin-left: 27%;
-    margin-top: 10%;
+margin: auto;
 }
 form{
-    margin-top: 6%;
+    
 }
 .formcont p {
-    margin-top: 20%;
-    margin-bottom: 18px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+	margin-top: 35%;
     font-size: 18pt;
     color: white;
     width: 70px;
@@ -42,6 +81,9 @@ form{
 
 .inputs {
     width: 368px;
+	display: flex;
+	flex-direction: column;
+	margin: auto
 }
 
 .inputs input {
@@ -52,8 +94,7 @@ form{
 }
 
 .inputs a {
-    margin-left: 10%;
-    margin-right: auto;
+margin: auto;
     text-decoration: underline;
     color: white
 }
@@ -88,9 +129,10 @@ form{
 }
 
 .logbtn {
-    margin-left: 26%;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	width: 179px;
 }
 
 .logbtn button {

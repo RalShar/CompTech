@@ -41,6 +41,49 @@ font-size: 18px !important;
             height: 100%;
     }
 }
+@media (max-width: 399px){ /*Адаптация под мобильные устройства*/
+    .about{
+        height: 100% !important;
+    }
+        .abt{
+        width: 90% !important;
+        flex-direction: column;
+    }
+    .about img{
+        width: 190px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    }
+    .abttxt{
+        margin-bottom: 3%;
+    }
+    .abttxt p{
+        width: 100% !important;
+    }
+    .txtcont{
+        height: 100% !important;
+    }
+    .collpse{
+        max-width: 350px;
+        height: 100%;
+        width: 95% !important;
+        margin-top: 1% !important;
+        margin-bottom: 1% !important;
+    }
+    .collapsible{
+      width: 100% !important;
+      gap: 0% !important;
+    }
+    .collapsible span{
+width: 100% !important;
+font-size: 16px !important;
+    }
+    .content{
+            max-width: 460px;
+            width: 100% !important;
+            height: 100%;
+    }
+}
 *{ /* Сброс отступов*/
     margin: 0;
     padding: 0;

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body class="main">
+<body>
 <script>
 const password = document.getElementById('password');
 const passwordRepeat = document.getElementById('password-repeat');
@@ -38,6 +38,7 @@ document.querySelector(".send").addEventListener("click", (event) => {
 });
 </script>
     <main>
+		<section>
         <div class="formcont">
             <form action="assets/function/registration.php" method="post">
                 <p>Регистрация</p>
@@ -56,6 +57,7 @@ document.querySelector(".send").addEventListener("click", (event) => {
                     </div>
                     <a href="login.php">Уже есть аккаунт? Войти</a>
                 </div>
+				</section>
             </form>
         </div>
     </main>

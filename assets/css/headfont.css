@@ -3,17 +3,92 @@
     /*Адаптация под мобильные устройства*/
     header {
         height: 100% !important;
+		position: fixed;
     }
-
-    .mobsearch_but {
-        display: flex !important;
-        background-color: transparent;
-        border: none;
-        width: 25px;
-        height: 25px;
-		margin:auto;
-    }
-
+	section:nth-of-type(1){
+		padding-top:10%;
+	}
+	main{
+		padding-top: 10%;
+	}
+	.overlay {
+  position: fixed; /* Остается на месте */
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  top: 0; /* Находится вверху */
+  left: 0; /* Находится слева */
+  background-color: rgba(0, 0, 0, 0.5); /* Черный с прозрачностью */
+  z-index: 0; /* Позади бокового меню */
+  display: none; /* Скрыт по умолчанию */
+}
+.sidenav {
+	display: block !important;
+  height: 21%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+	.sidea{
+		display: flex;
+		flex-direction: column;
+	}
+/* The navigation menu links */
+.sidenav a {
+  padding: 4px 8px 4px 20px;
+	width: fit-content;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  transition: 0.3s;
+}
+	.sidesearch{
+		display: flex;
+		margin-left: 8%;
+		border-radius: 6px;
+		border: 1px solid #d4d4d4;
+		height: 25px;
+		width:210px;
+	}
+	.sidesearch img{
+		width: 15px;
+		height: 15px;
+		margin: auto;
+	}
+	.sidesearch input{
+		border: none;
+		height: 25px;
+		width:180px;
+		padding-left: 3%;
+	}
+.sideup{
+		position: absolute;
+		width: 100%;
+		height: 45px;
+		background: #D9D9D9;
+		top:0;
+	}
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  margin-left: 50px;
+}
+	.closebtn img{
+		width: inherit;
+		height: inherit;
+	}
+	.closebtn{
+		width: 30px !important;
+		height: 30px !important;
+		padding-top: 8px !important;
+	}
     .mobmenu_but {
         display: flex !important;
         background-color: transparent;
@@ -21,6 +96,8 @@
         width: 25px;
         height: 25px;
 		margin: auto;
+		margin-right: 0%;
+		margin-left:5%;
     }
 
     .headup {
@@ -30,7 +107,10 @@
     .headdowncont {
         border-bottom: 1px solid #CACACA;
     }
-
+	.headdown{
+		gap:24%;	
+		justify-content: flex-start !important;
+	}
     .catalogbut {
         display: none !important;
     }
@@ -99,7 +179,192 @@
         margin: auto;
     }
 }
+@media (max-width: 399px) {
 
+    /*Адаптация под мобильные устройства*/
+    header {
+        height: auto !important;
+		position: fixed;
+    }
+	section:nth-of-type(1){
+		padding-top:10%;
+	}
+	main{
+		padding-top: 10%;
+	}
+	
+	.overlay {
+  position: fixed; /* Остается на месте */
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  top: 0; /* Находится вверху */
+  left: 0; /* Находится слева */
+  background-color: rgba(0, 0, 0, 0.5); /* Черный с прозрачностью */
+  z-index: 0; /* Позади бокового меню */
+  display: none; /* Скрыт по умолчанию */
+}
+.sidenav {
+	display: block !important;
+  height: 26%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+	.sidea{
+		display: flex;
+		flex-direction: column;
+	}
+/* The navigation menu links */
+.sidenav a {
+  padding: 4px 8px 4px 20px;
+	width: fit-content;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  transition: 0.3s;
+}
+	.sidesearch{
+		display: flex;
+		margin-left: 8%;
+		border-radius: 6px;
+		border: 1px solid #d4d4d4;
+		height: 25px;
+		width:210px;
+	}
+	.sidesearch img{
+		width: 15px;
+		height: 15px;
+		margin: auto;
+	}
+	.sidesearch input{
+		border: none;
+		height: 25px;
+		width:180px;
+		padding-left: 3%;
+	}
+.sideup{
+		position: absolute;
+		width: 100%;
+		height: 45px;
+		background: #D9D9D9;
+		top:0;
+	}
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  margin-left: 50px;
+}
+	.closebtn img{
+		width: inherit;
+		height: inherit;
+	}
+	.closebtn{
+		width: 30px !important;
+		height: 30px !important;
+		padding-top: 8px !important;
+	}
+    .mobmenu_but {
+        display: flex !important;
+        background-color: transparent;
+        border: none;
+        width: 25px;
+        height: 25px;
+		margin: auto;
+		margin-right: 0%;
+		margin-left:5%;
+    }
+
+    .headup {
+        display: none !important;
+    }
+
+    .headdowncont {
+        border-bottom: 1px solid #CACACA;
+    }
+	.headdown{
+		gap:20%;	
+		justify-content: flex-start !important;
+	}
+    .catalogbut {
+        display: none !important;
+    }
+
+    .search {
+        display: none !important;
+    }
+
+    .headbtns {
+        display: none !important;
+    }
+
+    .foot {
+        margin-left: 5% !important;
+        flex-direction: column;
+    }
+
+    .links1 {
+        margin-left: 5% !important;
+    }
+
+    .tel {
+        margin-left: 5% !important;
+    }
+
+    .icon-bar {
+        display: flex !important;
+        width: 100%;
+        /* Full-width */
+        height: 60px;
+        background-color: white;
+        /* Dark-grey background */
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        /* Параметры тени */
+        overflow: auto;
+        /* Overflow due to float */
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+
+    .icon-bar a {
+        display: flex;
+        justify-content: center;
+        float: left;
+        /* Float links side by side */
+        text-align: center;
+        /* Center-align text */
+        width: 20%;
+        /* Equal width (5 icons with 20% width each = 100%) */
+        padding: 6px 0 3px 0;
+        /* Some top and bottom padding */
+        transition: all 0.3s ease;
+        /* Add transition for hover effects */
+        color: black;
+        /* White text color */
+        font-size: 14px;
+        /* Increased font size */
+        flex-direction: column;
+        text-decoration: none;
+    }
+
+    .icon-bar img {
+        width: 28px;
+        margin: auto;
+    }
+}
+input {outline:none;}
+.sidenav {
+display: none;	
+}
 header {
     width: 100%;
     height: 100px;

@@ -14,8 +14,8 @@
     />
 </head>
 
-<body class="main">
-    <main>
+<body>
+	<section>
         <div class="formcont">
             <form action="assets/function/logincont.php" method="post">
                 <p>Войти</p>
@@ -29,11 +29,11 @@
                             Войти
                         </button>
                     </div>
-                    <a href="reg.php">Вперывые здесь? Зарегистрироваться</a>
+                    <a href="reg.php">Впервые здесь? Зарегистрироваться</a>
                 </div>
             </form>
         </div>
-    </main>
+		</section>
 </body>
 
 </html>

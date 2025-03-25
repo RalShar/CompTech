@@ -103,8 +103,14 @@
         <div class="sex">
 <p>Пол</p> 
 <div class="sbtns">
-<button type="button">Мужской</button> 
-<button type="button">Женский</button>
+    <label class="radio-container">
+        <input type="radio" name="gender" value="male" onclick="changeBorder(this)">
+        Мужской
+    </label>
+    <label class="radio-container">
+        <input type="radio" name="gender" value="female" onclick="changeBorder(this)">
+        Женский
+    </label>
 </div>
 </div>
         <label class="lab3">
@@ -125,6 +131,7 @@
     </form>
     <div class="save">
     <button type="submit">Сохранить изменения</button>
+		<button type="button" onclick="location.href='assets/function/logout.php'">Выйти</button>
 </div>
 </div>
 </div>
@@ -188,6 +195,16 @@
         modal.style.display = "none";
       }
     } 
+	function changeBorder(selectedRadio) {
+    const containers = document.querySelectorAll('.radio-container');
+    
+    containers.forEach(container => {
+        container.classList.remove('selected'); // Убираем выделение со всех
+    });
+
+    selectedRadio.parentElement.classList.add('selected'); // Добавляем выделение к выбранному
+}
+
     </script>
   </body>
 </html>
