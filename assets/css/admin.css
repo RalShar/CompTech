@@ -1,3 +1,31 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	.time{
+		display: none !important;
+	}
+	.window2{
+		width: 390px !important;
+		margin: auto !important;
+	}
+	.inputs, .inputs1{
+		display: flex;
+		flex-direction: column;
+		width: 360px !important;
+	}
+}
+@media (max-width: 390px) {
+	.time{
+		display: none !important;
+	}
+	.window2{
+		width: 350px !important;
+		margin: auto !important;
+	}
+	.inputs, .inputs1{
+		display: flex;
+		flex-direction: column;
+		width: 340px !important;
+	}
+}
 *{ /* Сброс отступов */
     margin: 0;
     padding:0;
@@ -16,8 +44,8 @@ body{
     margin-top: 2% !important;
 }
 .window2{
-    width: 500px !important;
-    margin-left: 7% !important;
+    width: 500px;
+    margin-left: 7%;
     margin-top: 2% !important;
     background: silver;
   box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
@@ -31,11 +59,14 @@ body{
 }
 .inputs{
     display: flex;
+	flex-direction: column;
     margin: auto;
     width: 400px;
 }
 .inputs1{
     margin: auto;
+	flex-direction: column;
+	display: flex;
     width: 400px;
     margin-top: 1%;
 }

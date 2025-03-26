@@ -1,8 +1,15 @@
 @media (min-width: 400px) and (max-width: 470px) {
-
+	.paymet{
+		margin-bottom: 14%;
+		margin-top: 3% !important;
+	}
+	.soc{
+		margin-top: 1% !important;
+		margin-bottom: 2%;
+	}
     /*Адаптация под мобильные устройства*/
     header {
-        height: 100% !important;
+        height: auto !important;
 		position: fixed;
     }
 	section:nth-of-type(1){
@@ -10,6 +17,9 @@
 	}
 	main{
 		padding-top: 10%;
+	}
+	footer a{
+		width: fit-content;
 	}
 	.overlay {
   position: fixed; /* Остается на месте */
@@ -180,7 +190,17 @@
     }
 }
 @media (max-width: 399px) {
-
+footer a{
+		width: fit-content;
+	}
+	.paymet{
+		margin-bottom: 16%;
+		margin-top: 3% !important;
+	}
+	.soc{
+		margin-top: 1% !important;
+		margin-bottom: 2%;
+	}
     /*Адаптация под мобильные устройства*/
     header {
         height: auto !important;
@@ -449,24 +469,21 @@ header {
     margin: auto;
     margin-left: 0;
     margin-right: 0;
+	  border-radius: 7px;
+    border: 1px solid #D4D4D4;
+	display: flex;
+	justify-content: center;
 }
 
 .search input {
-    width: 98%;
-    height: 32px;
-    border-radius: 7px;
-    border: 1px solid #D4D4D4;
+	border: none;
+    width: 87%;
     position: relative;
+	margin-left: 2%;
 }
 
 .search img {
-    position: absolute;
-    left: 65%;
-    top: 59px;
-}
-
-.search input[type=text] {
-    padding-left: 24px;
+    margin: auto;
 }
 
 

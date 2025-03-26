@@ -1,3 +1,51 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	.tabcont{
+		padding-top: 20% !important;
+		width: 90% !important;
+		height: 100%;
+		margin-bottom: 8% !important;
+	}
+	.tabcontent{
+		height: 100%;
+		flex-direction: column;	
+		flex-wrap: nowrap!important;
+		margin-top: 2%;
+	}
+	.tab1{
+		width: inherit!important;	
+	}
+	.triang{
+		width: inherit !important;
+		height: 68% !important;
+	}
+	.triangtxt{
+		margin-top: 22% !important;
+	}
+}
+@media (max-width: 399px) {
+	.tabcont{
+		padding-top: 20% !important;
+		width: 90% !important;
+		height: 100%;
+		margin-bottom: 8% !important;
+	}
+	.tabcontent{
+		height: 100%;
+		flex-direction: column;	
+		flex-wrap: nowrap!important;
+		margin-top: 2%;
+	}
+	.tab1{
+		width: inherit!important;	
+	}
+	.triang{
+		width: inherit !important;
+		height: 70% !important;
+	}
+	.triangtxt{
+		margin-top: 22% !important;
+	}
+}
 *{ /* Сброс отступов */
     margin: 0;
     padding: 0;

@@ -83,11 +83,13 @@ function fnfav() {
                         <p>%s</p>
                         <p>%s</p>
                     </div>
+	<div class="buy">
                     <p class="tovprice">%d ₽</p>
                     <div class="tovbtns">
                            <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)"><img src="assets/img/cartg.png" alt="cart"></button>
                         <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
                     </div>
+	</div>
                 </div>
             </div>', 
             htmlspecialchars($item['pimage']), 

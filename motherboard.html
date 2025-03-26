@@ -8,7 +8,7 @@
 	<title>Выбираем mATX на B650</title>
 </head>
 	<body>
-		<header>
+		    <header>
     <div class="headup">
       <nav>
         <a href="about.html">О нас</a>
@@ -20,16 +20,11 @@
     </div>
     <div class="headdowncont">
       <div class="headdown">
-        <img
-          src="assets/img/logo.png"
-          alt="logo"
-          class="logo"
-          onclick="location.href='index.php'"
-        />
-        <button class="catalogbut" onclick="location.href='catalog.php'">
-          <span>Каталог</span
-          ><img src="assets/img/catalog.png" alt="catalog" />
-        </button>
+       <button class="mobmenu_but" onClick="openNav()"><img src="assets/img/Sorting Left.png" alt="menu_mobile"></button>
+        <img src="assets/img/logo.png" alt="logo" class="logo" onclick="location.href='index.php'" />
+<button class="catalogbut" onclick="location.href='catalog.php'">
+        <span>Каталог</span><img src="assets/img/catalog.png" alt="catalog" />
+      </button>
         <div class="search">
           <input type="text" placeholder="Поиск" />
           <img src="assets/img/Search.png" alt="searchicon" />
@@ -50,6 +45,23 @@
         </nav>
       </div>
     </div>
+	  <div id="mySidenav" class="sidenav">
+		  <div class="sideup">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="assets/img/Close - 192x192.png" alt="sideclose"></a>
+			  </div>
+		  <div class="sidesearch">
+		  <input type="text">
+		  <img src="assets/img/Search.png" alt="sidesearch">
+		  </div>
+		  <div class="sidea">
+  <a href="about.html">О компании</a>
+  <a href="delivery.html">Доставка и оплата</a>
+  <a href="guarantee.html">Гарантии и возврат</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="contacts.html">Контакты</a>
+			  </div>
+</div>
+	  <div id="overlay" class="overlay" onclick="closeNav()"></div>
   </header>
 		   <div id="myModal" class="modal">
         <!-- Контент в модальном окне -->
@@ -69,17 +81,17 @@
 		<section>
 			<div class="article">
 				<h1>Выбираем mATX на B650</h1>
-				<img src="assets/img/articleimg3.webp" alt="articleimg">
+				<img src="assets/img/articleimg3.webp" alt="articleimg" class="motherimg">
 				<div class="aricletext">
 				<p>— ASRock B650M PG Riptide. 12 фаз питания по 60А, 8+4 пин разъёмы питания CPU, 5 коннекторов для вентиляторов, 3 коннектора ARGB, 4 SATA-порта. Модуля беспроводной связи тут нет. Вернее, есть модель с суффиксом WiFi, но найти её почти нереально. Звуковой кодек тут простецкий, что важно при использовании устройств без ЦАП. ALC 897 в каждый дом, ага…</p>					
 				</div>
-				<img src="assets/img/articleimg4.webp" alt="articleimg2">
-				<img src="assets/img/articleimg5.webp" alt="articleimg3">
-				<img src="assets/img/articleimg6.webp" alt="articleimg4">
+				<img src="assets/img/articleimg4.webp" alt="articleimg2" class="motherimg">
+				<img src="assets/img/articleimg5.webp" alt="articleimg3" class="motherimg">
+				<img src="assets/img/articleimg6.webp" alt="articleimg4" class="motherimg">
 				<div class="aricletext">
 				<p>— Gigabyte B650M AORUS ELITE AX. Те же самые 12 фаз CPU по 60А, но всего один 8-пиновый разъём, которого по факту более чем достаточно. 6 коннекторов вентиляторов, 3 ARGB, 4 SATA. Первые ревизии этих материнских плат были 8-слойными, но потом пришли оптимизаторы – и оптимизировали… Начиная с ревизии 1.3 B650M AORUS ELITE AX стали 6-слойными. Да-да, белая версия этой материнки появилась вместе с ревизией 1.3. </p>					
 				</div>
-				<img src="assets/img/articleimg7.webp" alt="articleimg5">
+				<img src="assets/img/articleimg7.webp" alt="articleimg5" class="motherimg">
 				<div class="aricletext">
 				<p>— ASUS TUF GAMING B650M-PLUS WIFI. Ещё одна плата такого же уровня. Уже знакомые нам 12 фаз по 60А, 8+4 пин разъёмы, 6 вентиляторных коннекторов, 3 ARGB и 4 SATA. Звуковой тракт идентичен AORUS и ASRock – ALC 897. </p>					
 				</div>
@@ -141,6 +153,15 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 } 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("overlay").style.display = "block"; // Показываем затемнение
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
+}
 </script>
 	</body>
 </html>

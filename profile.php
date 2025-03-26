@@ -22,49 +22,61 @@
     <title>CompTech</title>
   </head>
   <body>
-    <header>
-      <div class="headup">
-        <nav>
-          <a href="about.html">О нас</a>
-          <a href="guarantee.html">Гарантии и возврат</a>
-          <a href="FAQ.html">FAQ</a>
-          <a href="delivery.html">Доставка и оплата</a>
-          <a href="contacts.html">Контакты</a>
+     <header>
+    <div class="headup">
+      <nav>
+        <a href="about.html">О нас</a>
+        <a href="guarantee.html">Гарантии и возврат</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="delivery.html">Доставка и оплата</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+    <div class="headdowncont">
+      <div class="headdown">
+       <button class="mobmenu_but" onClick="openNav()"><img src="assets/img/Sorting Left.png" alt="menu_mobile"></button>
+        <img src="assets/img/logo.png" alt="logo" class="logo" onclick="location.href='index.php'" />
+<button class="catalogbut" onclick="location.href='catalog.php'">
+        <span>Каталог</span><img src="assets/img/catalog.png" alt="catalog" />
+      </button>
+        <div class="search">
+          <input type="text" placeholder="Поиск" />
+          <img src="assets/img/Search.png" alt="searchicon" />
+        </div>
+        <nav class="headbtns">
+          <button type="button" onclick="location.href='profile.php'">
+            <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
+            <span>Профиль</span>
+          </button>
+          <button type="button" onclick="location.href='cart.php'">
+            <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
+            <span>Корзина</span>
+          </button>
+          <button type="button" onclick="location.href='fav.php'">
+            <img src="assets/img/Heart-192x192.png" alt="fav" />
+            <span>Избранное</span>
+          </button>
         </nav>
       </div>
-      <div class="headdowncont">
-        <div class="headdown">
-          <img
-          src="assets/img/logo.png"
-            alt="logo"
-            class="logo"
-            onclick="location.href='index.php'"
-          />
-          <button class="catalogbut" onclick="location.href='catalog.html'">
-            <span>Каталог</span
-            ><img src="assets/img/catalog.png" alt="catalog" />
-          </button>
-          <div class="search">
-            <input type="text" placeholder="Поиск" />
-            <img src="assets/img/Search.png" alt="searchicon" />
-          </div>
-          <nav class="headbtns">
-            <button type="button" onclick="location.href='profile.php'">
-              <img src="assets/img/Profile_Circle-192x192.png" alt="profile" />
-              <span>Профиль</span>
-            </button>
-            <button type="button" onclick="location.href='cart.php'">
-              <img src="assets/img/Shopping_Card-192x192.png" alt="cart" />
-              <span>Корзина</span>
-            </button>
-            <button type="button" onclick="location.href='fav.php'">
-              <img src="assets/img/Heart-192x192.png" alt="fav" />
-              <span>Избранное</span>
-            </button>
-          </nav>
-        </div>
-      </div>
-    </header>
+    </div>
+	  <div id="mySidenav" class="sidenav">
+		  <div class="sideup">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="assets/img/Close - 192x192.png" alt="sideclose"></a>
+			  </div>
+		  <div class="sidesearch">
+		  <input type="text">
+		  <img src="assets/img/Search.png" alt="sidesearch">
+		  </div>
+		  <div class="sidea">
+  <a href="about.html">О компании</a>
+  <a href="delivery.html">Доставка и оплата</a>
+  <a href="guarantee.html">Гарантии и возврат</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="contacts.html">Контакты</a>
+			  </div>
+</div>
+	  <div id="overlay" class="overlay" onclick="closeNav()"></div>
+  </header>
     <main>
       <div id="myModal" class="modal">
         <!-- Контент в модальном окне -->
@@ -139,6 +151,12 @@
         </div>
     </section>
     </main>
+	  <div class="icon-bar">
+    <a href="catalog.php"><img src="assets/img/Category.png" alt="catalog">Каталог</a>
+    <a href="profile.php"><img src="assets/img/Profile_Circle-192x192.png" alt="profile">Профиль</a>
+    <a href="cart.php"><img src="assets/img/Shopping_Card-192x192.png" alt="cart">Корзина</a>
+    <a href="fav.php"><img src="assets/img/Heart-192x192.png" alt="favorites">Избранное</a>
+  </div>
     <footer>
       <div class="foot">
         <div class="tel">
@@ -204,7 +222,15 @@
 
     selectedRadio.parentElement.classList.add('selected'); // Добавляем выделение к выбранному
 }
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("overlay").style.display = "block"; // Показываем затемнение
+}
 
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
+}
     </script>
   </body>
 </html>

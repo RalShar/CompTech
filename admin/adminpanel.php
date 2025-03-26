@@ -47,7 +47,7 @@ include("../assets/function/function.php"); // Подключение функц
                     <input type="text" name="name" required>
 
                     <label for="price">Цена:</label>
-                    <input type="number" name="price" required>
+                    <input type="text" name="price" required>
                 </div>
                 <div class="inputs1">
                     <label for="type">Тип:</label>

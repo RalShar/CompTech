@@ -1,3 +1,24 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	section{
+		padding-top: 20% !important;
+		padding-bottom: 3%;
+	}
+	.article{
+		width: 390px !important;
+		margin: auto !important;
+	}	
+	.article h1{
+		width: auto !important;
+	}
+	.aricletext p{
+		width: auto !important;
+	}
+	.motherimg{
+		max-width: 80% !important;
+		margin: auto;
+		display: flex;
+	}
+}
 *{
     margin:0;
     padding:0;

@@ -19,7 +19,7 @@ include("assets/function/function.php"); //Подключение функций
     /> <!--Подключение шрифта-->
 </head>
 <body>
-  <header>
+     <header>
     <div class="headup">
       <nav>
         <a href="about.html">О нас</a>
@@ -31,16 +31,11 @@ include("assets/function/function.php"); //Подключение функций
     </div>
     <div class="headdowncont">
       <div class="headdown">
-        <img
-          src="assets/img/logo.png"
-          alt="logo"
-          class="logo"
-          onclick="location.href='index.php'"
-        />
-        <button class="catalogbut" onclick="location.href='catalog.html'">
-          <span>Каталог</span
-          ><img src="assets/img/catalog.png" alt="catalog" />
-        </button>
+       <button class="mobmenu_but" onClick="openNav()"><img src="assets/img/Sorting Left.png" alt="menu_mobile"></button>
+        <img src="assets/img/logo.png" alt="logo" class="logo" onclick="location.href='index.php'" />
+<button class="catalogbut" onclick="location.href='catalog.php'">
+        <span>Каталог</span><img src="assets/img/catalog.png" alt="catalog" />
+      </button>
         <div class="search">
           <input type="text" placeholder="Поиск" />
           <img src="assets/img/Search.png" alt="searchicon" />
@@ -61,6 +56,23 @@ include("assets/function/function.php"); //Подключение функций
         </nav>
       </div>
     </div>
+	  <div id="mySidenav" class="sidenav">
+		  <div class="sideup">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="assets/img/Close - 192x192.png" alt="sideclose"></a>
+			  </div>
+		  <div class="sidesearch">
+		  <input type="text">
+		  <img src="assets/img/Search.png" alt="sidesearch">
+		  </div>
+		  <div class="sidea">
+  <a href="about.html">О компании</a>
+  <a href="delivery.html">Доставка и оплата</a>
+  <a href="guarantee.html">Гарантии и возврат</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="contacts.html">Контакты</a>
+			  </div>
+</div>
+	  <div id="overlay" class="overlay" onclick="closeNav()"></div>
   </header>
       <div id="myModal" class="modal"><!--Модальное окно-->
         <!-- Контент в модальном окне -->

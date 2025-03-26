@@ -1,3 +1,67 @@
+@media (min-width: 400px) and (max-width: 470px){/*Адаптация под мобильные устройства*/
+	.profile{
+		width: 390px !important;
+		height: auto !important;
+		margin-top: 1% !important;
+			margin-bottom: 3% !important;
+	}
+	.profile h1{
+		text-align: center;
+	}
+	.profcont{
+		margin: auto !important;
+		margin-top: 1% !important;
+	}
+	hr{
+		display:none;
+	}
+	.lab1,.lab2,.lab3,.lab4{
+		display: flex;
+		justify-content: space-between;
+	}
+	.lab1 input,.lab2 input,.lab3 input,.lab4 input{
+		margin-left: 0 !important;
+		height: 18px !important;
+}
+	.sex{
+		justify-content: space-between;
+	}
+	.sbtns{
+		margin-left: 0;
+	}
+}
+@media (max-width: 399px){/*Адаптация под мобильные устройства*/
+	.profile{
+		width: 350px !important;
+		height: auto !important;
+		margin-top: 1% !important;
+			margin-bottom: 3% !important;
+	}
+	.profile h1{
+		text-align: center;
+	}
+	.profcont{
+		margin: auto !important;
+		margin-top: 1% !important;
+	}
+	hr{
+		display:none;
+	}
+	.lab1,.lab2,.lab3,.lab4{
+		display: flex;
+		justify-content: space-between;
+	}
+	.lab1 input,.lab2 input,.lab3 input,.lab4 input{
+		margin-left: 0 !important;
+		height: 18px !important;
+}
+	.sex{
+		justify-content: space-between;
+	}
+	.sbtns{
+		margin-left: 0;
+	}
+}
 *{ /* Сброс отступов */
     margin: 0;
     padding: 0;
