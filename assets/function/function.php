@@ -25,6 +25,7 @@ function fnOutCardsUser () {
                         <p>%s</p>
                         <p>%s</p>
                     </div>
+					<div class="buys">
                     <div class="number-input">
                         <button type="button" class="decrease" data-id="%d">-</button>
                         <input type="number" value="%s" min="0" class="quantity-input" data-id="%d">
@@ -35,6 +36,7 @@ function fnOutCardsUser () {
                         <button type="button" class="cart" data-id="%d"><img src="assets/img/Heart.png" alt="fav"></button>
                         <button type="button" class="delete" data-id="%d"><img src="assets/img/Trash.png" alt="del"></button>
                     </div>
+					</div>
                 </div>
             </div>', 
             htmlspecialchars($item['pimage']), 
@@ -495,12 +497,15 @@ function fncatalog($typeId) {
           </div>
       </div>
       <div class="tovprice">
+	  <div class="price">
       <p>%s ₽</p>
-       <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
-    </div>
-      <div class="tovbtns">
+	  <div class="tovbtns">
       <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
   </div>
+  </div>
+       <button class="tovbut" name="id_product" type="button" value="%s" onclick="addToCart(this)"><img src="assets/img/Shopping_Card-192x192.png" alt="cart"><span>В корзину</span></button>
+    </div>
+      
     </div>
   </div>', $item['pimage'], $item['pname'], $item['descrip'], $item['price'], $item['id'], $item['id']);
         }

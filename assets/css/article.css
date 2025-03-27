@@ -6,7 +6,6 @@
 	.article{
 		width: 390px !important;
 		margin: auto !important;
-	
 	}	
 	.article h1{
 		width: auto !important;
@@ -16,7 +15,7 @@
 	}
 	.motherimg{
 		max-width: 80% !important;
-		margin: auto !important;
+		margin: auto;
 		display: flex;
 	}
 }
@@ -37,7 +36,7 @@
 	}
 	.motherimg{
 		max-width: 80% !important;
-		margin: auto !important;
+		margin: auto;
 		display: flex;
 	}
 }
@@ -48,23 +47,18 @@
 }
 .article{
 	margin-left: 19%;
-	max-width: auto;
+	max-width: 100%;
 		margin-top:0.5%;
 	margin-bottom: 5%;
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
 }
 .article h1{
 	width: 60%;
 	margin-bottom: 1%;
 }
 .article img{
-	max-width: 450px;
+	max-width: 100%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	margin-left:20%;
-	display:flex;
 }
 .aricletext{
 		max-width: 100%;

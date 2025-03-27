@@ -16,7 +16,7 @@ include("assets/function/function.php");
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>CompTech</title>
+    <title>Корзина</title>
   </head>
   <body>
        <header>
@@ -431,6 +431,15 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 } 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("overlay").style.display = "block"; // Показываем затемнение
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
+}
 </script>
 
   </body>

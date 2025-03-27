@@ -1,4 +1,23 @@
 @media (min-width: 400px) and (max-width: 470px) {
+	.modal-content{
+		width: 400px !important;
+		padding: 0px !important;
+	}
+	.obrat, .obratform{
+	width: 390px !important;	
+	}
+	.obratform input{
+		width: 350px !important;
+		margin: auto;
+	}
+	.obratform textarea{
+		width: 350px !important;
+		margin: auto;
+	}
+	.close{
+		margin-right: 5%;
+		margin-top: 2%;
+	}
 	.paymet{
 		margin-bottom: 14%;
 		margin-top: 3% !important;
@@ -11,6 +30,7 @@
     header {
         height: auto !important;
 		position: fixed;
+		z-index: 1;
     }
 	section:nth-of-type(1){
 		padding-top:10%;
@@ -32,8 +52,9 @@
   display: none; /* Скрыт по умолчанию */
 }
 .sidenav {
-	display: block !important;
-  height: 21%; /* 100% Full-height */
+	display: flex !important;
+	flex-direction: column;
+  height: 30%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
@@ -43,10 +64,13 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	border-radius: 0px 0px 5px 0px;
 }
 	.sidea{
 		display: flex;
 		flex-direction: column;
+		width: fit-content;
+		margin-top: 2%;
 	}
 /* The navigation menu links */
 .sidenav a {
@@ -190,7 +214,26 @@
     }
 }
 @media (max-width: 399px) {
-footer a{
+.modal-content{
+		width: 350px !important;
+		padding: 0px !important;
+	}
+	.obrat, .obratform{
+	width: 340px !important;	
+	}
+	.obratform input{
+		width: 330px !important;
+		margin: auto;
+	}
+	.obratform textarea{
+		width: 330px !important;
+		margin: auto;
+	}
+	.close{
+		margin-right: 5%;
+		margin-top: 2%;
+	}
+	footer a{
 		width: fit-content;
 	}
 	.paymet{
@@ -205,6 +248,7 @@ footer a{
     header {
         height: auto !important;
 		position: fixed;
+		z-index: 1;
     }
 	section:nth-of-type(1){
 		padding-top:10%;
@@ -420,7 +464,6 @@ header {
 .headdowncont {
     display: flex;
     justify-content: center;
-    width: 100%;
     width: 100%;
     height: 62px;
     background-color: white;

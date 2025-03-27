@@ -1,3 +1,157 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	.cart{
+		width: 390px !important;
+	}
+	.cartcont{
+		margin-bottom: 3%;
+	}
+	h1,h4{
+			width: fit-content;
+	}
+	.order p{
+		width: fit-content;
+	}
+
+	.personal1, .personal2, .delad, .checks{
+	display: flex !important;
+		flex-direction: column;	
+		width: fit-content;
+		
+	}
+	.personal1 input, .personal2 input, .delad input, .checks input, .town input{
+		margin: 1% !important;
+	}
+	.delivery_adress input{
+		width: 370px !important;
+		margin: 1% !important;
+		margin-bottom: 0% !important;
+	}
+	.comments textarea{
+		width: 370px !important;
+		margin: auto;
+		display: flex;
+	}
+	.word_opts{
+		margin: 1%;
+	}
+		.tovar{
+		width: 390px !important;
+		margin-bottom: 2% !important;
+	}
+	.buys{
+		display: flex;
+		width: fit-content !important;
+		justify-content: center;
+		margin-left: 2%;
+		margin-top: 1%;
+	}
+	.cart{
+		flex-direction: column;
+	}
+		.tovinfo{
+		flex-direction: column;
+		margin-top: 2%;
+		margin-bottom: 1%;
+	}
+	.tovar{
+		margin-bottom: 1%;
+	}
+	.tovar img{
+		width: 100px !important;
+		margin-top: 2% !important;
+		margin-bottom: 2% !important;
+	}
+	.tovchar{
+		 width: fit-content !important;
+	}
+	.tovprice{
+		width: 80px !important;
+		margin-left: 5% !important;
+	}
+	.buy{
+		margin: auto;
+	}
+}
+@media (max-width: 399px) {
+	.cart{
+		width: 345px !important;
+	}
+	.cartcont{
+		margin-bottom: 3%;
+	}
+	h1,h4{
+			width: fit-content;
+	}
+	.order p{
+		width: fit-content;
+	}
+
+	.personal1, .personal2, .delad, .checks{
+	display: flex !important;
+		flex-direction: column;	
+		width: fit-content;
+		
+	}
+	.personal1 input, .personal2 input, .delad input, .checks input, .town input{
+		margin: 1% !important;
+	}
+	.delivery_adress input{
+		width: 330px !important;
+		margin: 1% !important;
+		margin-bottom: 0% !important;
+	}
+	.comments textarea{
+		width: 330px !important;
+		margin: auto;
+		display: flex;
+	}
+	.word_opts{
+		margin: 1%;
+	}
+		.tovar{
+		width: 350px !important;
+		margin-bottom: 2% !important;
+	}
+	.buys{
+		width: fit-content !important;
+		
+		margin-top: 1%;
+		flex-wrap: wrap;
+	}
+	.tovchar p:nth-of-type(2n){
+		width: 230px !important;
+	}
+	.cart{
+		flex-direction: column;
+	}
+		.tovinfo{
+		flex-direction: column;
+		margin-top: 2%;
+		margin-bottom: 1%;
+	}
+	.tovar{
+		margin-bottom: 1%;
+	}
+	.tovar img{
+			width: 90px !important;
+		margin-top: 2% !important;
+		margin-bottom: 2% !important;
+	}
+	.tovchar{
+		 width: fit-content !important;
+	}
+	.tovprice{
+		width: 80px !important;
+		margin-left: 5% !important;
+	}
+	.buy{
+		margin: auto;
+		width: auto !important;
+	}
+	.tovbtns{
+		margin-top: 1% !important;
+	}
+}
 *{ /* Сброс отступов*/
     margin: 0;
     padding: 0;
@@ -34,14 +188,14 @@ margin-top: 1%;
 .tovinfo{
     display: flex;
     width: 900px;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 2%;
     margin-left: 2%;
 }
 .tovchar{
     display: flex;
     flex-direction: column;
-    height: 60px;
+    height: auto;
     font-weight: 500;
     margin: auto;
     margin-left: 2%;
@@ -52,7 +206,11 @@ margin-top: 1%;
     font-size: 12px;
     color: #767272;
     margin-top: 2%;
-    width: 350px;
+   width: fit-content;
+}
+.tovbtns img{
+    width: 25px !important;
+    height: 25px !important;
 }
 .number-input {
     display: flex;
@@ -261,7 +419,7 @@ font-size: 21px;
     font-size: 21px;
 }
 .delivery_adress input{
-    width: 610px;
+    width: 643px;
     height: 30px;
     border-radius: 3px;
     border: 1px solid #767272;
@@ -348,4 +506,8 @@ font-size: 21px;
     font-size: 17px;
     resize: none;
     outline:none;
+}
+.buys{
+	display: flex;
+	gap:2%;
 }

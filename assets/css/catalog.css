@@ -1,7 +1,302 @@
+@media (min-width: 400px) and (max-width: 470px) {
+	.sidenav1 {
+	display: block !important;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* The navigation menu links */
+.sidenav1 a {
+  padding: 4px 8px 4px 5px;
+	width: fit-content;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  transition: 0.3s;
+}
+	.filthead{
+		margin-left: 0% !important;
+	}
+	.sidefil{
+		margin-left: 5%;
+	}
+	.sidefilin, .sidefil{
+		width: fit-content;
+	}
+	.sideup1{
+		position: absolute;
+		width: 100%;
+		height: 45px;
+		border-bottom: 1px solid black;
+		top:0;
+			}
+	.closena{
+		display: flex;
+		height: 100%;
+			width:100%;
+	}
+	.closena p{
+		width: fit-content;
+		height: fit-content;
+		margin: auto;
+		margin-left: 0;
+		font-weight: bold;
+		font-size: 17px;
+	}
+	.closebtn1 img{
+		width: inherit;
+		height: inherit;
+	}
+	.closebtn1{
+		width: 30px !important;
+		height: 30px !important;
+		padding-top: 8px !important;
+	}
+	.catasec{
+		padding-top: 20% !important;
+	}
+	.filter{
+		display: none !important;
+	}	
+	.tovar{
+		flex-direction: column !important;
+		width: 390px !important;
+	}
+	.tovinfo{
+		
+		flex-direction: column;
+	}
+	.tovchar{
+		height: auto !important;
+		width: 390px !important;
+		margin-left: 0 !important;
+	}
+	.tovchar p:nth-of-type(2n){
+		width: 390px !important;
+	}
+	.catalog{
+		width: 390px !important;
+	}
+	#all{
+		display: flex;
+		margin: auto;
+		flex-direction: column !important;
+	}
+	.catasec h1{
+		margin-left: 5% !important;
+	}
+	.tovprice{
+		height: auto !important;
+		display: flex;
+		width: auto !important;
+		gap:15%;
+		margin-left: 0 !important;
+		margin-top: 2% !important;
+	}
+	.price{
+		width: 120px;
+	}
+	.tovinfo{
+		width: 390px !important;
+}
+	.tovbtns{
+		margin: auto !important;
+	}
+.price{
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+	
+}
+	.tovar img{
+		margin: auto;
+		margin-bottom: 3% !important;
+	}
+	.price p{
+		margin-top: auto !important;
+		margin-bottom: auto !important;
+		height: 19px;
+	}
+	.stars{
+		height: 15px;
+		margin: auto;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.review{
+		justify-content: flex-start !important;
+		gap:20%;
+	}
+	.filters{
+	margin-left: 5%;
+		display: flex !important;
+		border:none;
+		background: white;
+}
+}
+@media (max-width: 399px) {
+	.sidenav1 {
+	display: block !important;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* The navigation menu links */
+.sidenav1 a {
+  padding: 4px 8px 4px 5px;
+	width: fit-content;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  transition: 0.3s;
+}
+	.filthead{
+		margin-left: 0% !important;
+	}
+	.sidefil{
+		margin-left: 5%;
+	}
+	.sidefilin, .sidefil{
+		width: fit-content;
+	}
+	.sideup1{
+		position: absolute;
+		width: 100%;
+		height: 45px;
+		border-bottom: 1px solid black;
+		top:0;
+			}
+	.closena{
+		display: flex;
+		height: 100%;
+			width:100%;
+	}
+	.closena p{
+		width: fit-content;
+		height: fit-content;
+		margin: auto;
+		margin-left: 0;
+		font-weight: bold;
+		font-size: 17px;
+	}
+	.closebtn1 img{
+		width: inherit;
+		height: inherit;
+	}
+	.closebtn1{
+		width: 30px !important;
+		height: 30px !important;
+		padding-top: 8px !important;
+	}
+	.catasec{
+		padding-top: 20% !important;
+	}
+	.filter{
+		display: none !important;
+	}	
+	.tovar{
+		flex-direction: column !important;
+		width: 340px !important;
+	}
+	.tovinfo{
+		margin: auto auto 2% auto !important;
+		margin-bottom: 2% !important;
+		flex-direction: column;
+	}
+	.tovchar{
+		height: auto !important;
+		width: 340px !important;
+		margin-left: 0 !important;
+	}
+	.tovchar p:nth-of-type(2n){
+		width: 340px !important;
+	}
+	.catalog{
+		width: 340px !important;
+	}
+	#all{
+		display: flex;
+		margin: auto;
+		flex-direction: column !important;
+	}
+	.catasec h1{
+		margin-left: 5% !important;
+	}
+	.tovprice{
+		height: auto !important;
+		display: flex;
+		width: auto !important;
+		gap:15%;
+		margin-left: 0 !important;
+		margin-top: 2% !important;
+	}
+	.price{
+		width: 120px;
+	}
+	.tovinfo{
+		width: 340px !important;
+}
+	.tovbtns{
+		margin: auto !important;
+	}
+.price{
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+	
+}
+	.tovar img{
+		margin: auto;
+		margin-bottom: 3% !important;
+	}
+	.price p{
+		margin-top: auto !important;
+		margin-bottom: auto !important;
+		height: 19px;
+	}
+	.stars{
+		height: 15px;
+		margin: auto;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.review{
+		justify-content: flex-start !important;
+		gap:20%;
+	}
+	.filters{
+	margin-left: 5%;
+		display: flex !important;
+		border:none;
+		background: white;
+}
+}
 *{ /* Сброс отступов*/
     margin:0;
     padding:0;
     font-family: 'roboto';
+}
+
+.filters{
+	display: none;
+	font-weight: bold;
+	font-size: 15px;
+	margin-top: 1%;
+	margin-bottom: 3%;
 }
 .filter{
     display: flex;

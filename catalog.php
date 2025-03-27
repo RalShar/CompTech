@@ -8,7 +8,7 @@ include("assets/function/function.php"); //Подключение функций
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompTech</title>
+    <title>Каталог</title>
     <link rel="stylesheet" href="assets/css/catalog.css">
     <link rel="stylesheet" href="assets/css/headfont.css"> <!--CSS Для шапки и футера-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,6 +74,67 @@ include("assets/function/function.php"); //Подключение функций
 </div>
 	  <div id="overlay" class="overlay" onclick="closeNav()"></div>
   </header>
+		  <div id="mySidefil" class="sidenav1">
+		  <div class="sideup1">
+			   <div class="closena">
+  <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()"><img src="assets/img/Close - 192x192.png" alt="sideclose"></a>
+			  <p>Закрыть</p>
+			  </div>
+			  </div>
+		  <div class="sidefil">
+			  <h2>Фильтры</h2>
+<div class="sidefilin">
+  <h3 class="filthead">Цена</h3>
+  <div class="priceinput">
+    <input type="number">
+    <input type="number">
+  </div>
+  <div class="type">
+    <h3>Тип</h3>
+    <label>
+      <input type="checkbox" value="case">
+      Корпус
+    </label>
+    <label>
+      <input type="checkbox" value="cpu">
+      Процессор
+    </label>
+    <label>
+      <input type="checkbox" value="videocard">
+      Видеокарта
+    </label>
+    <label>
+      <input type="checkbox" value="ssd">
+      SSD
+    </label>
+  </div>
+  <div class="manufacturer">
+    <h3>Производитель</h3>
+    <label>
+      <input type="checkbox" value="ASUS">
+      Kingston
+    </label>
+    <label>
+      <input type="checkbox" value="Zalman">
+      Zalman
+    </label>
+    <label>
+      <input type="checkbox" value="MSI">
+      Intel
+    </label>
+    <label>
+      <input type="checkbox" value="Nvidia">
+      Nvidia
+    </label>
+    <label>
+      <input type="checkbox" value="Seagate">
+      Seagate
+    </label>
+  </div>
+</div>
+			  </div>
+		 
+</div>
       <div id="myModal" class="modal"><!--Модальное окно-->
         <!-- Контент в модальном окне -->
         <div class="modal-content">
@@ -91,6 +152,7 @@ include("assets/function/function.php"); //Подключение функций
       </div>
     <section class="catasec">
       <h1>Каталог</h1>
+		<button class="filters" onClick="openNav1()">Фильтры</button>
       <div class="catalog">
 <div class="filter"><!--Фильтры-->
   <h2>Фильтры</h2>
@@ -244,6 +306,22 @@ function addToFav(button) {
 
     // Отправляем данные на сервер
     xhr.send("id_product=" + encodeURIComponent(productId));
+}
+	function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("overlay").style.display = "block"; // Показываем затемнение
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
+}
+	function openNav1() {
+  document.getElementById("mySidefil").style.width = "100%";
+}
+
+function closeNav1() {
+  document.getElementById("mySidefil").style.width = "0";
 }
 </script>
           </body>

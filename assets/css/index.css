@@ -2,6 +2,107 @@
   .banner{
     display: none !important;
     }
+	.tabcontent, .tabcontent2, .tabcontent3{
+		flex-direction: column !important;
+		width: 80% !important;
+		height: 100% !important;
+		margin: auto;
+			flex-wrap: nowrap !important;
+		gap: 0% !important;
+	}
+	.tabcont h1{
+		width: fit-content;
+		margin-left: 4%;
+	}
+	.tab1{
+		width: auto !important;
+		margin-top: 4% !important;
+		margin-bottom: 4% !important;
+	}
+	.tab, .tabnews{
+		width: 100% !important;
+		}
+	.tabnews{
+		margin-top: 3%;
+		margin-bottom: 1%;
+	}
+	.tablinks, .tablinks2{
+		margin-top: 1%;
+	}
+	.tabcont{
+		width: 390px !important;
+		height: 100% !important;
+		padding-top: 11% !important;
+	}
+	.actual{
+		flex-direction: column;
+	}
+	.actualcont{
+		margin: auto;
+		margin-top: 2%;
+	}
+	.actualconte hr{
+		width: 90% !important;
+	}
+	.actualconte h1{
+		margin-left: 10% !important;
+	}
+}
+@media (max-width: 399px){ /* Адаптация под мобильные устройства */
+  .banner{
+    display: none !important;
+    }
+	.actualcont{
+		width: 340px !important;
+	}
+	.actual1, .actual2, .actual3{
+		margin: auto;
+	}
+	.tabcontent, .tabcontent2, .tabcontent3{
+		flex-direction: column !important;
+		width: 80% !important;
+		height: 100% !important;
+		margin: auto;
+			flex-wrap: nowrap !important;
+		gap: 0% !important;
+	}
+	.tabcont h1{
+		width: fit-content;
+		margin-left: 4%;
+	}
+	.tab1{
+		width: auto !important;
+		margin-top: 4% !important;
+		margin-bottom: 4% !important;
+	}
+	.tab, .tabnews{
+		width: 100% !important;
+		}
+	.tabnews{
+		margin-top: 3%;
+		margin-bottom: 1%;
+	}
+	.tablinks, .tablinks2{
+		margin-top: 1%;
+	}
+	.tabcont{
+		width: 350px !important;
+		height: 100% !important;
+		padding-top: 11% !important;
+	}
+	.actual{
+		flex-direction: column;
+	}
+	.actualcont{
+		margin: auto;
+		margin-top: 2%;
+	}
+	.actualconte hr{
+		width: 90% !important;
+	}
+	.actualconte h1{
+		margin-left: 10% !important;
+	}
 }
 *{ /* Сброс отступов */
     margin:0;

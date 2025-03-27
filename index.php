@@ -480,6 +480,15 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 } 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("overlay").style.display = "block"; // Показываем затемнение
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
+}
 </script>
 </body>
 </html>
