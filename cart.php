@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <?php
 session_start();
 include("assets/function/config.php");
 include("assets/function/function.php");
+
 ?>
-<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -16,6 +17,7 @@ include("assets/function/function.php");
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Корзина</title>
   </head>
   <body>
@@ -94,8 +96,9 @@ include("assets/function/function.php");
             <div class="cart">
         <div class="tovarcont">
             <h1>Корзина</h1>
-            <?=fnOutCardsUser()?>   
-    <div class="tovleft">  
+            <?=fnOutCardsUser()?>
+			
+    <div class="tovleft">    
       <div class="order">
 <h1>Оформление заказа</h1>
 <form class="ordercont" id="myForm" action="assets\function\oform.php" method="POST">
@@ -108,21 +111,19 @@ include("assets/function/function.php");
 <div class="checks">
   <div class="deliv1">
     <label>
-      <input type="radio" name="delivery_option" value="delivery" id="delivery" checked>
-      <div class="word_opts">
+    <input type="radio" name="payment_method" value="delivery" checked>
+    <div class="word_opts">
         <p>Доставка</p>
-        <p>490 руб/завтра</p>
-      </div>
-    </label>
-  </div>
-  <div class="deliv2">
-    <label>
-      <input type="radio" name="delivery_option" value="fromshop" id="fromshop">
-      <div class="word_opts">
+        <p>Оплата наличными при получении заказа</p>
+    </div>
+</label>
+<label>
+    <input type="radio" name="payment_method" value="pickup">
+    <div class="word_opts">
         <p>Самовывоз</p>
-        <p>Бесплатно</p>
-      </div>
-    </label>
+        <p>Безопасная оплата банковской картой онлайн</p>
+    </div>
+</label>
   </div>
 </div>
 </div>
@@ -179,27 +180,29 @@ include("assets/function/function.php");
       </div>
     </div>
         </div>
+				<div class="buyh">
         <div class="buy">
-            <div class="txt1">
-                <p>Ваши товары(2)</p>
-                <p>13 680₽</p>
-            </div>
-            <div class="txt1">
-                <p>Способ получения</p>
-                <p>Доставка</p>
-            </div>
-            <div class="txt1">
-                <p>Стоимость доставки</p>
-                <p>480₽</p>
-            </div>
-            <hr>
-            <div class="txt2 txt1">
-                <p>Итого к опалте</p>
-                <p>14 160₽</p>
-            </div>
-            <button type="submit" id="submitButton">Оформить заказ</button>
-            <p class="txt3">Нажимая на кнопку "Оформить заказ", Вы соглашаетесь с условиями оферты и политики конфиденциальности</p>
-        </div>
+    <div class="txt1">
+       <p>Ваши товары (<span id="totalCount"><?php echo isset($totalCount) ? $totalCount : 0; ?></span>)</p>
+<p id="totalPrice">0₽</p>
+    </div>
+    <div class="txt1">
+    <p id="delivery-method">Способ получения</p>
+    <p id="delivery-info">Доставка</p>
+</div>
+<div class="txt1">
+    <p>Стоимость доставки</p>
+    <p id="delivery-cost">0₽</p>
+</div>
+    <hr>
+    <div class="txt2 txt1">
+        <p>Итого к оплате</p>
+        <p id="total-to-pay">0₽</p> <!-- Здесь будет итоговая стоимость -->
+    </div>
+    <button type="submit" id="submitButton">Оформить заказ</button>
+    <p class="txt3">Нажимая на кнопку "Оформить заказ", Вы соглашаетесь с условиями оферты и политики конфиденциальности</p>
+</div>
+					</div>
     </div>
     </section>
     </main>
@@ -441,6 +444,76 @@ function closeNav() {
   document.getElementById("overlay").style.display = "none"; // Скрываем затемнение
 }
 </script>
+	  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Находим радиокнопки и элементы, которые нужно обновить
+        const radios = document.querySelectorAll('input[name="payment_method"]');
+        const deliveryMethod = document.getElementById('delivery-info');
+        const deliveryCost = document.getElementById('delivery-cost');
+        const totalPriceElement = document.getElementById('totalPrice');
+        const totalToPayElement = document.getElementById('total-to-pay');
 
+        // Функция для обновления информации о доставке и итоговой стоимости
+        function updateDeliveryInfo() {
+            let deliveryFee = 0;
+            if (document.querySelector('input[name="payment_method"]:checked').value === 'delivery') {
+                deliveryMethod.textContent = 'Доставка';
+                deliveryFee = 480; // Стоимость доставки
+            } else {
+                deliveryMethod.textContent = 'Самовывоз';
+            }
+
+            deliveryCost.textContent = `${deliveryFee}₽`;
+
+            // Получаем общую стоимость из элемента totalPrice
+            const totalPrice = parseInt(totalPriceElement.textContent.replace('₽', '').replace(/\s/g, '')) || 0;
+            const totalToPay = totalPrice + deliveryFee;
+
+            totalToPayElement.textContent = `${totalToPay}₽`;
+        }
+
+        // Функция для получения общей стоимости и количества товаров
+      function updateTotalCount() {
+    $.ajax({
+        url: 'assets/function/total.php', // URL к вашему PHP-скрипту
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if (data && data.total_count !== undefined && data.total_price !== undefined) {
+                $('#totalCount').text(data.total_count); // Обновляем текст в элементе
+                totalPriceElement.textContent = `${data.total_price}₽`; // Обновляем цену
+
+                // Проверяем, есть ли товары в корзине
+                if (data.total_count > 0) {
+                    $('.buyh').show(); // Показываем блоки с информацией о заказе
+                    $('.tovleft').show(); // Показываем блок оформления заказа
+                } else {
+                    $('.buyh').hide(); // Скрываем блоки с информацией о заказе
+                    $('.tovleft').hide(); // Скрываем блок оформления заказа
+                }
+
+                updateDeliveryInfo(); // Обновляем информацию о доставке и итог
+            } else {
+                console.error('Неверный формат данных:', data);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Ошибка при получении данных:', status, error);
+            console.error(xhr.responseText); // Выводим текст ответа сервера
+        }
+    });
+}
+
+
+        // Устанавливаем интервал для обновления данных
+        setInterval(updateTotalCount, 10);
+
+        // Добавляем обработчик события для каждой радиокнопки
+        radios.forEach(radio => {
+            radio.addEventListener('change', updateDeliveryInfo);
+        });
+    });
+</script>
+	 
   </body>
 </html>

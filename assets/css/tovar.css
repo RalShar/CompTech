@@ -1,3 +1,85 @@
+@media (min-width: 400px) and (max-width: 470px){ /* Адаптация под мобильные устройства */
+	.tovar h1{
+		width: 390px !important;
+		margin: auto !important;	
+	}
+	.tovarup{
+		flex-direction: column;
+		width: 390px !important;
+		justify-content: center;
+	}	
+	.tovarup img{
+		margin: auto;
+	}
+	.updescrip{
+		margin: auto;
+	}
+	.descriptab{
+		flex-direction: column;
+	}
+	.buy{
+		margin: auto !important;
+	}
+	.tabcont{
+		height: 100% !important;
+		width: 390px !important;
+		margin-top: 5% !important;
+	}
+	.tabcontent3{
+		height: 100% !important;
+	}
+	.updescrip{
+		width: 320px !important;
+	}
+	.otsiv{
+		width: 390px !important;
+	}
+	.otbut{
+		margin: auto !important;
+		margin-top: 5% !important;
+	}
+}
+@media (max-width: 399px){ /* Адаптация под мобильные устройства */
+	.tovar h1{
+		width: 350px !important;
+		margin: auto !important;	
+	}
+	.tovarup{
+		flex-direction: column;
+		width: 350px !important;
+		justify-content: center;
+	}	
+	.tovarup img{
+		margin: auto;
+	}
+	.updescrip{
+		margin: auto;
+	}
+	.descriptab{
+		flex-direction: column;
+	}
+	.buy{
+		margin: auto !important;
+	}
+	.tabcont{
+		height: 100% !important;
+		width: 350px !important;
+		margin-top: 5% !important;
+	}
+	.tabcontent3{
+		height: 100% !important;
+	}
+	.updescrip{
+		width: 320px !important;
+	}
+	.otsiv{
+		width: 350px !important;
+	}
+	.otbut{
+		margin: auto !important;
+		margin-top: 5% !important;
+	}
+}
 *{ /* Сброс отступов */
     padding: 0;
     margin: 0;
