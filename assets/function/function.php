@@ -434,7 +434,7 @@ function mobindexnew($typeId) {
         return $data;
     } 
 }
-function fncatalog($typeId) {
+function fncatalog($typeId, $filters = []) {
     global $connect;
 
     // Маппинг id на типы товаров
@@ -447,31 +447,56 @@ function fncatalog($typeId) {
         'case' => 'Корпус',
         'mother' => 'Материнская плата',
         'all' => 'all' // Для выбора всех товаров
-        // Добавьте другие типы по мере необходимости
     ];
 
-    // Проверяем, если id равен 'all', то выводим все товары
-    if ($typeId === 'all') {
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
-                FROM `product`";
-    } else {
-        // Проверяем, существует ли тип в маппинге
+    $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`, `manufacturer` AS `manufacturer`
+            FROM `product` WHERE 1=1";
+
+    // Добавляем фильтр по типу, если не 'all'
+    if ($typeId !== 'all') {
         if (!array_key_exists($typeId, $typeMapping)) {
             return '<h4 class="none">Неверный тип товара</h4>';
         }
-
         $productType = $typeMapping[$typeId];
+        $sql .= " AND `type` = '$productType'";
+    }
 
-        // Изменяем запрос, добавляя условие WHERE для фильтрации по типу
-        $sql = "SELECT `name` AS `pname`, `img` AS `pimage`, `description` AS `descrip`, `price` AS `price`, `type` AS `type`, `id` AS `id`
-                FROM `product` 
-                WHERE `type` = '$productType' ";
+    // Применяем фильтры, если они есть
+    if (!empty($filters)) {
+        // Фильтр по цене
+        if (isset($filters['min_price']) && is_numeric($filters['min_price'])) {
+            $sql .= " AND `price` >= " . floatval($filters['min_price']);
+        }
+        if (isset($filters['max_price']) && is_numeric($filters['max_price'])) {
+            $sql .= " AND `price` <= " . floatval($filters['max_price']);
+        }
+
+        // Фильтр по типу (из чекбоксов)
+        if (!empty($filters['types'])) {
+            $typeConditions = [];
+            foreach ($filters['types'] as $type) {
+                if (isset($typeMapping[$type])) {
+                    $typeConditions[] = "'" . $typeMapping[$type] . "'";
+                }
+            }
+            if (!empty($typeConditions)) {
+                $sql .= " AND `type` IN (" . implode(',', $typeConditions) . ")";
+            }
+        }
+
+        // Фильтр по производителю
+        if (!empty($filters['manufacturers'])) {
+            $manufacturerConditions = [];
+            foreach ($filters['manufacturers'] as $manufacturer) {
+                $manufacturerConditions[] = "'" . $connect->real_escape_string($manufacturer) . "'";
+            }
+            $sql .= " AND `manufacturer` IN (" . implode(',', $manufacturerConditions) . ")";
+        }
     }
 
     $result = $connect->query($sql);
 
     if ($result->num_rows) {
-        // Добавляем значение $typeId в атрибут id
         $data = sprintf('<div id="%s">', htmlspecialchars($typeId));
         
         foreach ($result as $item) {
@@ -497,9 +522,9 @@ function fncatalog($typeId) {
           </div>
       </div>
       <div class="tovprice">
-	  <div class="price">
+      <div class="price">
       <p>%s ₽</p>
-	  <div class="tovbtns">
+      <div class="tovbtns">
       <button name="id_product" type="button" value="%s" onclick="addToFav(this)"><img src="assets/img/Heart.png" alt="fav"></button>
   </div>
   </div>
@@ -511,6 +536,8 @@ function fncatalog($typeId) {
         }
         $data .= '</div>';
         return $data;
-    } 
+    } else {
+        return '<h4 class="none">Товары не найдены</h4>';
+    }
 }
 ?>

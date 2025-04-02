@@ -12,6 +12,16 @@
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
+	.type, .manufacturer, .priceinput{
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	#applyFilters{
+	margin: 5% 0% 5% 0% !important;
+}
+#resetFilters{
+	margin: 0% 0% 0% 0% !important; 
+}
 /* The navigation menu links */
 .sidenav1 a {
   padding: 4px 8px 4px 5px;
@@ -99,10 +109,7 @@
 		gap:15%;
 		margin-left: 0 !important;
 		margin-top: 2% !important;
-	}
-	.price{
-		width: 120px;
-	}
+	}	
 	.tovinfo{
 		width: 390px !important;
 }
@@ -110,9 +117,11 @@
 		margin: auto !important;
 	}
 .price{
+	width: 120px;
 	display: flex;
 	justify-content: space-between;
 	height: 30px;
+	gap:28% !important;
 	
 }
 	.tovar img{
@@ -142,6 +151,12 @@
 }
 }
 @media (max-width: 399px) {
+	#applyFilters{
+	margin: 9% 0% 5% 0% !important;
+}
+#resetFilters{
+	margin: 0% 0% 0% 0% !important; 
+}
 	.sidenav1 {
 	display: block !important;
   height: 100%; /* 100% Full-height */
@@ -244,9 +259,6 @@
 		margin-left: 0 !important;
 		margin-top: 2% !important;
 	}
-	.price{
-		width: 120px;
-	}
 	.tovinfo{
 		width: 340px !important;
 }
@@ -257,6 +269,8 @@
 	display: flex;
 	justify-content: space-between;
 	height: 30px;
+	width: 120px;
+	gap:20% !important;
 	
 }
 	.tovar img{
@@ -285,12 +299,42 @@
 		background: white;
 }
 }
+.sidenav1{
+	display: none;
+}
+#applyFilters{
+	background: red;
+	border: none;
+	color: white;
+	width: 200px;
+	height: 28px;
+	font-weight: bold;
+	font-size: 13px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 9% 9% 5% 9%;
+}
+#resetFilters{
+	background: white;
+	border: 1px solid grey;
+	color: black;
+	width: 200px;
+	height: 28px;
+	font-weight: bold;
+	font-size: 13px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0% 9% 0% 9%;
+}
 *{ /* Сброс отступов*/
     margin:0;
     padding:0;
     font-family: 'roboto';
 }
-
+.price{
+	display: flex;
+	gap:52%;
+}
 .filters{
 	display: none;
 	font-weight: bold;
@@ -420,7 +464,7 @@
     width: 25px;
     gap: 25%;
     display: flex;
-    margin-top: 6%;
+    margin: auto;
     margin-left: 4%;
     margin-right: 0;
 }
@@ -436,10 +480,11 @@
 }
 .catasec{
     height: 100%;
+	min-height: 700px;
 }
 .catasec h1{
     width: 100px;
-    margin-left: 16.6%;
+    margin-left: 17%;
 }
 .catalog{
     display: flex;

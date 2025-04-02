@@ -283,6 +283,12 @@ include("assets/function/function.php"); // подключения функци�
       </div>
 </section>
     </main>
+	<div class="icon-bar">
+    <a href="catalog.php"><img src="assets/img/Category.png" alt="catalog">Каталог</a>
+    <a href="profile.php"><img src="assets/img/Profile_Circle-192x192.png" alt="profile">Профиль</a>
+    <a href="cart.php"><img src="assets/img/Shopping_Card-192x192.png" alt="cart">Корзина</a>
+    <a href="fav.php"><img src="assets/img/Heart-192x192.png" alt="favorites">Избранное</a>
+  </div>
     <footer>
       <div class="foot">
         <div class="tel">

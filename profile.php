@@ -100,49 +100,56 @@
 <h2>Профиль</h2>
 <div class="aboutme">
     <h2>Обо мне</h2>
-    <form>
-        <label class="lab1">
-            Имя
-            <input type="text">
-        </label>
-        <label class="lab2">
-            Фамилия
-            <input type="text">
-        </label>
-        <label class="lab2">Отчество
-            <input type="text">
-        </label>
-        <div class="sex">
-<p>Пол</p> 
-<div class="sbtns">
-    <label class="radio-container">
-        <input type="radio" name="gender" value="male" onclick="changeBorder(this)">
-        Мужской
+    <form method="POST" action="assets/function/profile.php" id="myForm">
+    <label class="lab2">
+        Фамилия
+        <input type="text" name="last_name">
     </label>
-    <label class="radio-container">
-        <input type="radio" name="gender" value="female" onclick="changeBorder(this)">
-        Женский
+    <label class="lab1">
+        Имя
+        <input type="text" name="first_name">
+    </label>       
+    <label class="lab2">
+        Отчество
+        <input type="text" name="middle_name">
     </label>
-</div>
-</div>
-        <label class="lab3">
-            Мобильный<br> телефон
-            <input type="tel">
-        </label>
-        <label class="lab4">
-            E-mail
-            <input type="email">
-        </label>
-        <div class="check">
+    <div class="sex">
+        <p>Пол</p> 
+        <div class="sbtns">
+            <label class="radio-container">
+                <input type="radio" name="gender" value="Мужской" onclick="changeBorder(this)">
+                Мужской
+            </label>
+            <label class="radio-container">
+                <input type="radio" name="gender" value="Женский" onclick="changeBorder(this)">
+                Женский
+            </label>
+        </div>
+    </div>
+    <label class="lab3">
+        Мобильный<br> телефон
+        <input type="tel" name="phone">
+    </label>
+    <label class="lab4">
+        E-mail
+        <input type="email" name="email">
+    </label>
+    <div class="check">
         <p>Расылка</p>
         <div class="chks">
-        <div class="chk"><input type="checkbox"><p>Согласие на смс рассылку</p></div>
-        <div class="chk"><input type="checkbox"><p>Согласие на E-mail рассылку</p></div>
+            <div class="chk">
+                <input type="checkbox" name="sms_subscription">
+                <p>Согласие на смс рассылку</p>
+            </div>
+            <div class="chk">
+                <input type="checkbox" name="email_subscription">
+                <p>Согласие на E-mail рассылку</p>
+            </div>
+        </div>
     </div>
-    </div>
-    </form>
+</form>
     <div class="save">
-    <button type="submit">Сохранить изменения</button>
+    <button type="submit" onclick="document.getElementById('myForm').submit();">Сохранить изменения</button>
 		<button type="button" onclick="location.href='assets/function/logout.php'">Выйти</button>
 </div>
 </div>

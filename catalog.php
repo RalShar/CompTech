@@ -100,7 +100,7 @@ include("assets/function/function.php"); //Подключение функций
       Процессор
     </label>
     <label>
-      <input type="checkbox" value="videocard">
+      <input type="checkbox" value="gpu">
       Видеокарта
     </label>
     <label>
@@ -111,7 +111,7 @@ include("assets/function/function.php"); //Подключение функций
   <div class="manufacturer">
     <h3>Производитель</h3>
     <label>
-      <input type="checkbox" value="ASUS">
+      <input type="checkbox" value="Kingston">
       Kingston
     </label>
     <label>
@@ -119,7 +119,7 @@ include("assets/function/function.php"); //Подключение функций
       Zalman
     </label>
     <label>
-      <input type="checkbox" value="MSI">
+      <input type="checkbox" value="Intel">
       Intel
     </label>
     <label>
@@ -131,6 +131,8 @@ include("assets/function/function.php"); //Подключение функций
       Seagate
     </label>
   </div>
+	<button id="applyFilters" onclick="applyFilters()">Применить фильтры</button>
+	  <button id="resetFilters" onclick="resetFilters()">Сбросить фильтры</button>
 </div>
 			  </div>
 		 
@@ -156,59 +158,69 @@ include("assets/function/function.php"); //Подключение функций
       <div class="catalog">
 <div class="filter"><!--Фильтры-->
   <h2>Фильтры</h2>
-<div>
-  <h3 class="filthead">Цена</h3>
-  <div class="priceinput">
-    <input type="number">
-    <input type="number">
-  </div>
-  <div class="type">
-    <h3>Тип</h3>
-    <label>
-      <input type="checkbox" value="case">
-      Корпус
-    </label>
-    <label>
-      <input type="checkbox" value="cpu">
-      Процессор
-    </label>
-    <label>
-      <input type="checkbox" value="videocard">
-      Видеокарта
-    </label>
-    <label>
-      <input type="checkbox" value="ssd">
-      SSD
-    </label>
-  </div>
-  <div class="manufacturer">
-    <h3>Производитель</h3>
-    <label>
-      <input type="checkbox" value="ASUS">
-      Kingston
-    </label>
-    <label>
-      <input type="checkbox" value="Zalman">
-      Zalman
-    </label>
-    <label>
-      <input type="checkbox" value="MSI">
-      Intel
-    </label>
-    <label>
-      <input type="checkbox" value="Nvidia">
-      Nvidia
-    </label>
-    <label>
-      <input type="checkbox" value="Seagate">
-      Seagate
-    </label>
+  <div>
+    <h3 class="filthead">Цена</h3>
+    <div class="priceinput">
+      <input type="number" name="min" placeholder="" value="0">
+      <input type="number" name="max" placeholder="" value="0">
+    </div>
+    <div class="type">
+      <h3>Тип</h3>
+      <label>
+        <input type="checkbox" value="case">
+        Корпус
+      </label>
+      <label>
+        <input type="checkbox" value="cpu">
+        Процессор
+      </label>
+      <label>
+        <input type="checkbox" value="gpu">
+        Видеокарта
+      </label>
+      <label>
+        <input type="checkbox" value="ssd">
+        SSD
+      </label>
+    </div>
+    <div class="manufacturer">
+      <h3>Производитель</h3>
+      <label>
+        <input type="checkbox" value="Kingston">
+        Kingston
+      </label>
+      <label>
+        <input type="checkbox" value="Zalman">
+        Zalman
+      </label>
+      <label>
+        <input type="checkbox" value="Intel">
+        Intel
+      </label>
+      <label>
+        <input type="checkbox" value="MSI">
+        MSI
+      </label>
+      <label>
+        <input type="checkbox" value="Seagate">
+        Seagate
+      </label>
+    </div>
+    <button id="applyFilters" onclick="applyFilters()">Применить фильтры</button>
+	  <button id="resetFilters" onclick="resetFilters()">Сбросить фильтры</button>
   </div>
 </div>
-</div>
+<div class="catalog-container">
 <?=fncatalog('all')?> <!--Список товаров-->
+		  </div>
 </div>
     </section>
+	<div class="icon-bar">
+    <a href="catalog.php"><img src="assets/img/Category.png" alt="catalog">Каталог</a>
+    <a href="profile.php"><img src="assets/img/Profile_Circle-192x192.png" alt="profile">Профиль</a>
+    <a href="cart.php"><img src="assets/img/Shopping_Card-192x192.png" alt="cart">Корзина</a>
+    <a href="fav.php"><img src="assets/img/Heart-192x192.png" alt="favorites">Избранное</a>
+  </div>
     <footer>
       <div class="foot">
         <div class="tel">
@@ -322,6 +334,67 @@ function closeNav() {
 
 function closeNav1() {
   document.getElementById("mySidefil").style.width = "0";
+}// Функция применения фильтров
+function applyFilters() {
+    // 1. Собираем актуальные значения фильтров
+    const filters = {
+        min_price: document.querySelector('input[name="min"]').value,
+        max_price: document.querySelector('input[name="max"]').value,
+        types: [],
+        manufacturers: []
+    };
+
+    // 2. Собираем только отмеченные чекбоксы
+    document.querySelectorAll('.type input[type="checkbox"]:checked').forEach(cb => {
+        filters.types.push(cb.value);
+    });
+    
+    document.querySelectorAll('.manufacturer input[type="checkbox"]:checked').forEach(cb => {
+        filters.manufacturers.push(cb.value);
+    });
+
+    // 3. Отправка запроса
+    fetch('assets/function/apply_filters.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'filters=' + encodeURIComponent(JSON.stringify(filters))
+    })
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('all').innerHTML = html;
+    })
+    .catch(error => console.error('Ошибка:', error));
+}
+
+// Функция полного сброса фильтров
+function resetFilters() {
+    // 1. Сбрасываем все поля ввода
+    document.querySelectorAll('input[name="min"], input[name="max"]').forEach(input => {
+        input.value = '';
+    });
+
+    // 2. Снимаем все чекбоксы
+    document.querySelectorAll('.filter input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // 3. Применяем пустые фильтры
+    applyFilters();
+}
+	function resetFilters() {
+    // Сбрасываем все чекбоксы
+    document.querySelectorAll('.filter input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    
+    // Сбрасываем поля цены
+    document.querySelector('input[name="min"]').value = '';
+    document.querySelector('input[name="max"]').value = '';
+    
+    // Применяем пустые фильтры
+    applyFilters();
 }
 </script>
           </body>
